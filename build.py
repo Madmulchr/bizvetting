@@ -167,6 +167,40 @@ SUPABASE_SCRIPT = '''<script src="https://cdn.jsdelivr.net/npm/@supabase/supabas
 })();
 </script>'''
 
+# Small header-nav widget: shows "Log In" when signed out, "Log Out" when
+# signed in. Appended to every page via header(), so one definition here
+# updates the whole site. Uses the same Supabase project/key as everything
+# else — no new credentials, just a second small client instance scoped to
+# this one widget.
+AUTH_STATUS_SCRIPT = '''<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  const _sbAuth = window.supabase.createClient("''' + SUPABASE_PROJECT_URL + '''", "''' + SUPABASE_PUBLISHABLE_KEY + '''");
+  const el = document.getElementById('authStatus');
+  if (!el) return;
+  _sbAuth.auth.getSession().then(function (res) {
+    const session = res.data.session;
+    if (session) {
+      el.innerHTML = '<a href="#" id="logoutLink">Log Out</a>';
+      document.getElementById('logoutLink').onclick = function (e) {
+        e.preventDefault();
+        _sbAuth.auth.signOut().then(function () { window.location.reload(); });
+      };
+    } else {
+      el.innerHTML = '<a href="#" id="loginLink">Log In</a>';
+      document.getElementById('loginLink').onclick = function (e) {
+        e.preventDefault();
+        const email = prompt('Enter your email to receive a login link:');
+        if (!email) return;
+        _sbAuth.auth.signInWithOtp({ email: email }).then(function (r) {
+          alert(r.error ? ('Something went wrong: ' + r.error.message) : 'Check your email for a login link.');
+        });
+      };
+    }
+  });
+})();
+</script>'''
+
 STATE_ABBR_TO_REGION = {
     'CT': 'New England', 'MA': 'New England', 'RI': 'New England', 'NH': 'New England',
     'ME': 'New England', 'VT': 'New England',
@@ -376,9 +410,10 @@ def header():
       <a href="#">Self-Storage</a>
       <a href="#">Methodology</a>
       <a href="#">Membership</a>
+      <span id="authStatus"></span>
     </nav>
   </div>
-</header>'''
+</header>''' + AUTH_STATUS_SCRIPT
 
 def footer():
     return '''<footer class="site-footer"><div class="wrap">

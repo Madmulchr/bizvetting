@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Southeast HVAC/Plumbing/Electrical Businesses for Sale — Graded for SBA Financing | Bizvetting</title>
+<title>Southeast HVAC/Plumbing/Electrical Businesses for Sale â€” Graded for SBA Financing | Bizvetting</title>
 <meta name="description" content="68 HVAC/Plumbing/Electrical businesses for sale in Southeast, Grade A/B/C (23/20/25), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
 <link rel="canonical" href="https://bizvetting.com/hub-southeast.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Southeast HVAC/Plumbing/Electrical Businesses for Sale — Graded for SBA Financing">
+<meta property="og:title" content="Southeast HVAC/Plumbing/Electrical Businesses for Sale â€” Graded for SBA Financing">
 <meta property="og:description" content="68 HVAC/Plumbing/Electrical businesses for sale in Southeast, Grade A/B/C (23/20/25), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
 <meta property="og:url" content="https://bizvetting.com/hub-southeast.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   Token system — v3 "Inspection Tag"
+   Token system â€” v3 "Inspection Tag"
    Concept: the grade is a physical hang-tag, like the inspection
-   or permit tag zip-tied to an HVAC unit after a service call —
+   or permit tag zip-tied to an HVAC unit after a service call â€”
    grounded in the trade itself, not a rating-agency seal or an
    editorial magazine card (both already tried). Blueprint-navy
    field with a faint drafting grid, grotesque display type
@@ -152,9 +152,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 .filter-count { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-dim); margin-left: auto; align-self: center; }
 .ledger-table thead th.sortable { cursor: pointer; user-select: none; }
 .ledger-table thead th.sortable:hover { color: var(--ink); }
-.ledger-table thead th.sortable::after { content: " ↕"; color: var(--ink-dim); font-size: 10px; }
-.ledger-table thead th.sort-asc::after { content: " ↑"; color: var(--orange); }
-.ledger-table thead th.sort-desc::after { content: " ↓"; color: var(--orange); }
+.ledger-table thead th.sortable::after { content: " â†•"; color: var(--ink-dim); font-size: 10px; }
+.ledger-table thead th.sort-asc::after { content: " â†‘"; color: var(--orange); }
+.ledger-table thead th.sort-desc::after { content: " â†“"; color: var(--orange); }
 @media (max-width: 780px) {
   .filter-bar-controls { flex-direction: column; align-items: stretch; }
   .filter-count { margin-left: 0; }
@@ -609,25 +609,55 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <div class="site-header-inner">
     <a class="wordmark-block" href="index.html">
       <span class="wordmark">Biz<span>vetting</span></span>
-      <span class="wordmark-tag">In-demand, on-market businesses — pre-underwritten &amp; ranked, accelerating your path to ownership</span>
+      <span class="wordmark-tag">In-demand, on-market businesses â€” pre-underwritten &amp; ranked, accelerating your path to ownership</span>
     </a>
     <nav class="header-nav">
       <a class="current" href="listings.html">HVAC / Plumbing / Electrical</a>
       <a href="#">Self-Storage</a>
       <a href="#">Methodology</a>
       <a href="#">Membership</a>
+      <span id="authStatus"></span>
     </nav>
   </div>
 </header>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  const _sbAuth = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
+  const el = document.getElementById('authStatus');
+  if (el) {
+    _sbAuth.auth.getSession().then(function (res) {
+      const session = res.data.session;
+      if (session) {
+        el.innerHTML = '<a href="#" id="logoutLink">Log Out</a>';
+        document.getElementById('logoutLink').onclick = function (e) {
+          e.preventDefault();
+          _sbAuth.auth.signOut().then(function () { window.location.reload(); });
+        };
+      } else {
+        el.innerHTML = '<a href="#" id="loginLink">Log In</a>';
+        document.getElementById('loginLink').onclick = function (e) {
+          e.preventDefault();
+          const email = prompt('Enter your email to receive a login link:');
+          if (!email) return;
+          _sbAuth.auth.signInWithOtp({ email: email }).then(function (r) {
+            alert(r.error ? ('Something went wrong: ' + r.error.message) : 'Check your email for a login link.');
+          });
+        };
+      }
+    });
+  }
+})();
+</script>
 <div class="batch-banner wrap">
-  <div class="hero-eyebrow">Region — Cycle 2026.08</div>
+  <div class="hero-eyebrow">Region â€” Cycle 2026.08</div>
   <h1 class="batch-title">Southeast HVAC/Plumbing/Electrical Businesses, Graded for SBA Financing</h1>
-  <p class="batch-sub">68 HVAC/Plumbing/Electrical businesses for sale in Southeast, run through the same SBA 7(a) underwriting math as every other listing and graded against the full current batch — not just against each other. 23 Grade A · 20 Grade B · 25 Grade C.</p>
+  <p class="batch-sub">68 HVAC/Plumbing/Electrical businesses for sale in Southeast, run through the same SBA 7(a) underwriting math as every other listing and graded against the full current batch â€” not just against each other. 23 Grade A Â· 20 Grade B Â· 25 Grade C.</p>
 </div>
 <div class="ledger wrap">
   <div class="ledger-panel">
   <table class="ledger-table">
-    <thead><tr><th></th><th>Business</th><th>Asking price</th><th>SDE multiple</th><th>DSCR — stated → stressed</th><th>To hit 1.25x</th></tr></thead>
+    <thead><tr><th></th><th>Business</th><th>Asking price</th><th>SDE multiple</th><th>DSCR â€” stated â†’ stressed</th><th>To hit 1.25x</th></tr></thead>
     <tbody>
       <tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -638,9 +668,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-04x-sde-cd2b94b1.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$200K – $250K</td>
+  <td class="num-cell">$200K â€“ $250K</td>
   <td class="num-cell">1.04x</td>
-  <td class="dscr-pair">7.1 <span class="arrow">→</span> <span class="stressed">5.68</span></td>
+  <td class="dscr-pair">7.1 <span class="arrow">â†’</span> <span class="stressed">5.68</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -651,9 +681,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-12x-sde-10b7740f.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$350K – $400K</td>
+  <td class="num-cell">$350K â€“ $400K</td>
   <td class="num-cell">1.12x</td>
-  <td class="dscr-pair">6.57 <span class="arrow">→</span> <span class="stressed">5.25</span></td>
+  <td class="dscr-pair">6.57 <span class="arrow">â†’</span> <span class="stressed">5.25</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -664,9 +694,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-a-1-16x-sde-4df13a28.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$200K – $250K</td>
+  <td class="num-cell">$200K â€“ $250K</td>
   <td class="num-cell">1.16x</td>
-  <td class="dscr-pair">6.35 <span class="arrow">→</span> <span class="stressed">5.08</span></td>
+  <td class="dscr-pair">6.35 <span class="arrow">â†’</span> <span class="stressed">5.08</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -677,9 +707,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-a-1-18x-sde-c17b3513.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$100K – $150K</td>
+  <td class="num-cell">$100K â€“ $150K</td>
   <td class="num-cell">1.18x</td>
-  <td class="dscr-pair">6.22 <span class="arrow">→</span> <span class="stressed">4.98</span></td>
+  <td class="dscr-pair">6.22 <span class="arrow">â†’</span> <span class="stressed">4.98</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -690,9 +720,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-21x-sde-26bad11e.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">1.21x</td>
-  <td class="dscr-pair">6.07 <span class="arrow">→</span> <span class="stressed">4.86</span></td>
+  <td class="dscr-pair">6.07 <span class="arrow">â†’</span> <span class="stressed">4.86</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -703,9 +733,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-a-1-21x-sde-f953eb80.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">1.21x</td>
-  <td class="dscr-pair">6.07 <span class="arrow">→</span> <span class="stressed">4.86</span></td>
+  <td class="dscr-pair">6.07 <span class="arrow">â†’</span> <span class="stressed">4.86</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -716,9 +746,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-ky-hvac-grade-a-1-31x-sde-6911f9ea.html">Southeast (KY) HVAC Business</a><span class="deal-meta">Southeast (KY)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">1.31x</td>
-  <td class="dscr-pair">5.62 <span class="arrow">→</span> <span class="stressed">4.5</span></td>
+  <td class="dscr-pair">5.62 <span class="arrow">â†’</span> <span class="stressed">4.5</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -729,9 +759,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-33x-sde-26d60059.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$200K – $250K</td>
+  <td class="num-cell">$200K â€“ $250K</td>
   <td class="num-cell">1.33x</td>
-  <td class="dscr-pair">5.53 <span class="arrow">→</span> <span class="stressed">4.43</span></td>
+  <td class="dscr-pair">5.53 <span class="arrow">â†’</span> <span class="stressed">4.43</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -742,9 +772,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-37x-sde-ba0cf669.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">1.37x</td>
-  <td class="dscr-pair">5.38 <span class="arrow">→</span> <span class="stressed">4.31</span></td>
+  <td class="dscr-pair">5.38 <span class="arrow">â†’</span> <span class="stressed">4.31</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -755,9 +785,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-tn-hvac-grade-a-1-57x-sde-6a273bb5.html">Southeast (TN) HVAC Business</a><span class="deal-meta">Southeast (TN)</span></td>
-  <td class="num-cell">$300K – $350K</td>
+  <td class="num-cell">$300K â€“ $350K</td>
   <td class="num-cell">1.57x</td>
-  <td class="dscr-pair">4.7 <span class="arrow">→</span> <span class="stressed">3.76</span></td>
+  <td class="dscr-pair">4.7 <span class="arrow">â†’</span> <span class="stressed">3.76</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -768,9 +798,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-6x-sde-e9108155.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$300K – $350K</td>
+  <td class="num-cell">$300K â€“ $350K</td>
   <td class="num-cell">1.6x</td>
-  <td class="dscr-pair">4.59 <span class="arrow">→</span> <span class="stressed">3.68</span></td>
+  <td class="dscr-pair">4.59 <span class="arrow">â†’</span> <span class="stressed">3.68</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -781,9 +811,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-61x-sde-affd1f1c.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$200K – $250K</td>
+  <td class="num-cell">$200K â€“ $250K</td>
   <td class="num-cell">1.61x</td>
-  <td class="dscr-pair">4.56 <span class="arrow">→</span> <span class="stressed">3.65</span></td>
+  <td class="dscr-pair">4.56 <span class="arrow">â†’</span> <span class="stressed">3.65</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -794,9 +824,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-1-65x-sde-973f8463.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$300K – $350K</td>
+  <td class="num-cell">$300K â€“ $350K</td>
   <td class="num-cell">1.65x</td>
-  <td class="dscr-pair">4.45 <span class="arrow">→</span> <span class="stressed">3.56</span></td>
+  <td class="dscr-pair">4.45 <span class="arrow">â†’</span> <span class="stressed">3.56</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -807,9 +837,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-a-1-66x-sde-217343c2.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">1.66x</td>
-  <td class="dscr-pair">4.44 <span class="arrow">→</span> <span class="stressed">3.55</span></td>
+  <td class="dscr-pair">4.44 <span class="arrow">â†’</span> <span class="stressed">3.55</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -820,9 +850,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-a-1-82x-sde-72567e69.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$100K – $150K</td>
+  <td class="num-cell">$100K â€“ $150K</td>
   <td class="num-cell">1.82x</td>
-  <td class="dscr-pair">4.04 <span class="arrow">→</span> <span class="stressed">3.23</span></td>
+  <td class="dscr-pair">4.04 <span class="arrow">â†’</span> <span class="stressed">3.23</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -833,9 +863,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-tn-hvac-grade-a-1-85x-sde-6f8725c7.html">Southeast (TN) HVAC Business</a><span class="deal-meta">Southeast (TN)</span></td>
-  <td class="num-cell">$400K – $450K</td>
+  <td class="num-cell">$400K â€“ $450K</td>
   <td class="num-cell">1.85x</td>
-  <td class="dscr-pair">3.97 <span class="arrow">→</span> <span class="stressed">3.18</span></td>
+  <td class="dscr-pair">3.97 <span class="arrow">â†’</span> <span class="stressed">3.18</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -846,9 +876,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-a-1-89x-sde-35277f9e.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">1.89x</td>
-  <td class="dscr-pair">3.88 <span class="arrow">→</span> <span class="stressed">3.11</span></td>
+  <td class="dscr-pair">3.88 <span class="arrow">â†’</span> <span class="stressed">3.11</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -859,9 +889,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-a-1-92x-sde-aee6df1a.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$700K – $800K</td>
+  <td class="num-cell">$700K â€“ $800K</td>
   <td class="num-cell">1.92x</td>
-  <td class="dscr-pair">3.83 <span class="arrow">→</span> <span class="stressed">3.06</span></td>
+  <td class="dscr-pair">3.83 <span class="arrow">â†’</span> <span class="stressed">3.06</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -872,9 +902,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-a-2-09x-sde-0ec0b03e.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">2.09x</td>
-  <td class="dscr-pair">3.53 <span class="arrow">→</span> <span class="stressed">2.82</span></td>
+  <td class="dscr-pair">3.53 <span class="arrow">â†’</span> <span class="stressed">2.82</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -885,9 +915,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-al-hvac-grade-a-2-13x-sde-96b27a56.html">Southeast (AL) HVAC Business</a><span class="deal-meta">Southeast (AL)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">2.13x</td>
-  <td class="dscr-pair">3.45 <span class="arrow">→</span> <span class="stressed">2.76</span></td>
+  <td class="dscr-pair">3.45 <span class="arrow">â†’</span> <span class="stressed">2.76</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -898,9 +928,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-a-2-27x-sde-3ad848e9.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">2.27x</td>
-  <td class="dscr-pair">3.24 <span class="arrow">→</span> <span class="stressed">2.6</span></td>
+  <td class="dscr-pair">3.24 <span class="arrow">â†’</span> <span class="stressed">2.6</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -911,9 +941,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-al-hvac-grade-a-2-33x-sde-b42a2bb9.html">Southeast (AL) HVAC Business</a><span class="deal-meta">Southeast (AL)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">2.33x</td>
-  <td class="dscr-pair">3.16 <span class="arrow">→</span> <span class="stressed">2.53</span></td>
+  <td class="dscr-pair">3.16 <span class="arrow">â†’</span> <span class="stressed">2.53</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -924,9 +954,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-a-2-38x-sde-306ef777.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$500K – $600K</td>
+  <td class="num-cell">$500K â€“ $600K</td>
   <td class="num-cell">2.38x</td>
-  <td class="dscr-pair">3.09 <span class="arrow">→</span> <span class="stressed">2.47</span></td>
+  <td class="dscr-pair">3.09 <span class="arrow">â†’</span> <span class="stressed">2.47</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -937,9 +967,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-2-39x-sde-09503c87.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$700K – $800K</td>
+  <td class="num-cell">$700K â€“ $800K</td>
   <td class="num-cell">2.39x</td>
-  <td class="dscr-pair">3.08 <span class="arrow">→</span> <span class="stressed">2.47</span></td>
+  <td class="dscr-pair">3.08 <span class="arrow">â†’</span> <span class="stressed">2.47</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -950,9 +980,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-2-4x-sde-977ece78.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$200K – $250K</td>
+  <td class="num-cell">$200K â€“ $250K</td>
   <td class="num-cell">2.4x</td>
-  <td class="dscr-pair">3.07 <span class="arrow">→</span> <span class="stressed">2.45</span></td>
+  <td class="dscr-pair">3.07 <span class="arrow">â†’</span> <span class="stressed">2.45</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -963,9 +993,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-ga-hvac-grade-b-2-45x-sde-4d9bc09e.html">Southeast (GA) HVAC Business</a><span class="deal-meta">Southeast (GA)</span></td>
-  <td class="num-cell">$150K – $200K</td>
+  <td class="num-cell">$150K â€“ $200K</td>
   <td class="num-cell">2.45x</td>
-  <td class="dscr-pair">3.0 <span class="arrow">→</span> <span class="stressed">2.4</span></td>
+  <td class="dscr-pair">3.0 <span class="arrow">â†’</span> <span class="stressed">2.4</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -976,9 +1006,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-al-hvac-grade-b-2-5x-sde-6a06a454.html">Southeast (AL) HVAC Business</a><span class="deal-meta">Southeast (AL)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">2.5x</td>
-  <td class="dscr-pair">2.94 <span class="arrow">→</span> <span class="stressed">2.36</span></td>
+  <td class="dscr-pair">2.94 <span class="arrow">â†’</span> <span class="stressed">2.36</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -989,9 +1019,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-ga-hvac-grade-b-2-58x-sde-649028ea.html">Southeast (GA) HVAC Business</a><span class="deal-meta">Southeast (GA)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">2.58x</td>
-  <td class="dscr-pair">2.86 <span class="arrow">→</span> <span class="stressed">2.28</span></td>
+  <td class="dscr-pair">2.86 <span class="arrow">â†’</span> <span class="stressed">2.28</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1002,9 +1032,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-2-71x-sde-4bf4c08d.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">2.71x</td>
-  <td class="dscr-pair">2.71 <span class="arrow">→</span> <span class="stressed">2.17</span></td>
+  <td class="dscr-pair">2.71 <span class="arrow">â†’</span> <span class="stressed">2.17</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1015,9 +1045,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-2-91x-sde-0bc46de0.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$500K – $600K</td>
+  <td class="num-cell">$500K â€“ $600K</td>
   <td class="num-cell">2.91x</td>
-  <td class="dscr-pair">2.53 <span class="arrow">→</span> <span class="stressed">2.03</span></td>
+  <td class="dscr-pair">2.53 <span class="arrow">â†’</span> <span class="stressed">2.03</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1028,9 +1058,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-2-91x-sde-637b6115.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">2.91x</td>
-  <td class="dscr-pair">2.53 <span class="arrow">→</span> <span class="stressed">2.03</span></td>
+  <td class="dscr-pair">2.53 <span class="arrow">â†’</span> <span class="stressed">2.03</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1041,9 +1071,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-b-2-91x-sde-e646dc5e.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$600K – $700K</td>
+  <td class="num-cell">$600K â€“ $700K</td>
   <td class="num-cell">2.91x</td>
-  <td class="dscr-pair">2.53 <span class="arrow">→</span> <span class="stressed">2.02</span></td>
+  <td class="dscr-pair">2.53 <span class="arrow">â†’</span> <span class="stressed">2.02</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1054,9 +1084,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-2-96x-sde-1496866c.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$350K – $400K</td>
+  <td class="num-cell">$350K â€“ $400K</td>
   <td class="num-cell">2.96x</td>
-  <td class="dscr-pair">2.48 <span class="arrow">→</span> <span class="stressed">1.99</span></td>
+  <td class="dscr-pair">2.48 <span class="arrow">â†’</span> <span class="stressed">1.99</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1067,9 +1097,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-b-3-12x-sde-d2c7d308.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$600K – $700K</td>
+  <td class="num-cell">$600K â€“ $700K</td>
   <td class="num-cell">3.12x</td>
-  <td class="dscr-pair">2.36 <span class="arrow">→</span> <span class="stressed">1.88</span></td>
+  <td class="dscr-pair">2.36 <span class="arrow">â†’</span> <span class="stressed">1.88</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1080,9 +1110,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-b-3-18x-sde-6e713645.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$2M – $2.5M</td>
+  <td class="num-cell">$2M â€“ $2.5M</td>
   <td class="num-cell">3.18x</td>
-  <td class="dscr-pair">2.32 <span class="arrow">→</span> <span class="stressed">1.85</span></td>
+  <td class="dscr-pair">2.32 <span class="arrow">â†’</span> <span class="stressed">1.85</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1093,9 +1123,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-3-2x-sde-f8d92c0d.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$2M – $2.5M</td>
+  <td class="num-cell">$2M â€“ $2.5M</td>
   <td class="num-cell">3.2x</td>
-  <td class="dscr-pair">2.3 <span class="arrow">→</span> <span class="stressed">1.84</span></td>
+  <td class="dscr-pair">2.3 <span class="arrow">â†’</span> <span class="stressed">1.84</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1106,9 +1136,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-ga-hvac-grade-b-3-25x-sde-bd730fa2.html">Southeast (GA) HVAC Business</a><span class="deal-meta">Southeast (GA)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">3.25x</td>
-  <td class="dscr-pair">2.27 <span class="arrow">→</span> <span class="stressed">1.81</span></td>
+  <td class="dscr-pair">2.27 <span class="arrow">â†’</span> <span class="stressed">1.81</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1119,9 +1149,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-b-3-31x-sde-c8d84288.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">3.31x</td>
-  <td class="dscr-pair">2.22 <span class="arrow">→</span> <span class="stressed">1.78</span></td>
+  <td class="dscr-pair">2.22 <span class="arrow">â†’</span> <span class="stressed">1.78</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1132,9 +1162,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-3-33x-sde-3c6e7fc5.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$600K – $700K</td>
+  <td class="num-cell">$600K â€“ $700K</td>
   <td class="num-cell">3.33x</td>
-  <td class="dscr-pair">2.21 <span class="arrow">→</span> <span class="stressed">1.77</span></td>
+  <td class="dscr-pair">2.21 <span class="arrow">â†’</span> <span class="stressed">1.77</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1145,9 +1175,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-ga-hvac-grade-b-3-42x-sde-01a95caf.html">Southeast (GA) HVAC Business</a><span class="deal-meta">Southeast (GA)</span></td>
-  <td class="num-cell">$4M – $4.5M</td>
+  <td class="num-cell">$4M â€“ $4.5M</td>
   <td class="num-cell">3.42x</td>
-  <td class="dscr-pair">2.15 <span class="arrow">→</span> <span class="stressed">1.72</span></td>
+  <td class="dscr-pair">2.15 <span class="arrow">â†’</span> <span class="stressed">1.72</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1158,9 +1188,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-b-3-5x-sde-3c43ce8b.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$800K – $900K</td>
+  <td class="num-cell">$800K â€“ $900K</td>
   <td class="num-cell">3.5x</td>
-  <td class="dscr-pair">2.1 <span class="arrow">→</span> <span class="stressed">1.68</span></td>
+  <td class="dscr-pair">2.1 <span class="arrow">â†’</span> <span class="stressed">1.68</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1171,9 +1201,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-ky-hvac-grade-b-3-54x-sde-442856bd.html">Southeast (KY) HVAC Business</a><span class="deal-meta">Southeast (KY)</span></td>
-  <td class="num-cell">$600K – $700K</td>
+  <td class="num-cell">$600K â€“ $700K</td>
   <td class="num-cell">3.54x</td>
-  <td class="dscr-pair">2.08 <span class="arrow">→</span> <span class="stressed">1.67</span></td>
+  <td class="dscr-pair">2.08 <span class="arrow">â†’</span> <span class="stressed">1.67</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1184,9 +1214,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-tn-hvac-grade-b-3-57x-sde-1ba53c1e.html">Southeast (TN) HVAC Business</a><span class="deal-meta">Southeast (TN)</span></td>
-  <td class="num-cell">$900K – $1M</td>
+  <td class="num-cell">$900K â€“ $1M</td>
   <td class="num-cell">3.57x</td>
-  <td class="dscr-pair">2.06 <span class="arrow">→</span> <span class="stressed">1.65</span></td>
+  <td class="dscr-pair">2.06 <span class="arrow">â†’</span> <span class="stressed">1.65</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1197,9 +1227,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-ky-hvac-grade-c-3-65x-sde-4feb0d90.html">Southeast (KY) HVAC Business</a><span class="deal-meta">Southeast (KY)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">3.65x</td>
-  <td class="dscr-pair">2.01 <span class="arrow">→</span> <span class="stressed">1.61</span></td>
+  <td class="dscr-pair">2.01 <span class="arrow">â†’</span> <span class="stressed">1.61</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1210,9 +1240,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-3-68x-sde-10dacf46.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">3.68x</td>
-  <td class="dscr-pair">2.0 <span class="arrow">→</span> <span class="stressed">1.6</span></td>
+  <td class="dscr-pair">2.0 <span class="arrow">â†’</span> <span class="stressed">1.6</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1223,9 +1253,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-al-hvac-grade-c-3-71x-sde-476cca56.html">Southeast (AL) HVAC Business</a><span class="deal-meta">Southeast (AL)</span></td>
-  <td class="num-cell">$1.25M – $1.5M</td>
+  <td class="num-cell">$1.25M â€“ $1.5M</td>
   <td class="num-cell">3.71x</td>
-  <td class="dscr-pair">1.98 <span class="arrow">→</span> <span class="stressed">1.59</span></td>
+  <td class="dscr-pair">1.98 <span class="arrow">â†’</span> <span class="stressed">1.59</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1236,9 +1266,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-3-73x-sde-dfb05f16.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$2.5M – $3M</td>
+  <td class="num-cell">$2.5M â€“ $3M</td>
   <td class="num-cell">3.73x</td>
-  <td class="dscr-pair">1.97 <span class="arrow">→</span> <span class="stressed">1.58</span></td>
+  <td class="dscr-pair">1.97 <span class="arrow">â†’</span> <span class="stressed">1.58</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1249,9 +1279,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-3-75x-sde-12f291d6.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$1.25M – $1.5M</td>
+  <td class="num-cell">$1.25M â€“ $1.5M</td>
   <td class="num-cell">3.75x</td>
-  <td class="dscr-pair">1.96 <span class="arrow">→</span> <span class="stressed">1.57</span></td>
+  <td class="dscr-pair">1.96 <span class="arrow">â†’</span> <span class="stressed">1.57</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1262,9 +1292,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-3-84x-sde-7320c7b3.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$700K – $800K</td>
+  <td class="num-cell">$700K â€“ $800K</td>
   <td class="num-cell">3.84x</td>
-  <td class="dscr-pair">1.92 <span class="arrow">→</span> <span class="stressed">1.53</span></td>
+  <td class="dscr-pair">1.92 <span class="arrow">â†’</span> <span class="stressed">1.53</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1275,9 +1305,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-3-84x-sde-c6f0b5cc.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">3.84x</td>
-  <td class="dscr-pair">1.92 <span class="arrow">→</span> <span class="stressed">1.53</span></td>
+  <td class="dscr-pair">1.92 <span class="arrow">â†’</span> <span class="stressed">1.53</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1288,9 +1318,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-3-93x-sde-ad6ad3b3.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$1.5M – $1.75M</td>
+  <td class="num-cell">$1.5M â€“ $1.75M</td>
   <td class="num-cell">3.93x</td>
-  <td class="dscr-pair">1.87 <span class="arrow">→</span> <span class="stressed">1.5</span></td>
+  <td class="dscr-pair">1.87 <span class="arrow">â†’</span> <span class="stressed">1.5</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1301,9 +1331,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-al-hvac-grade-c-3-99x-sde-f9933c7c.html">Southeast (AL) HVAC Business</a><span class="deal-meta">Southeast (AL)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">3.99x</td>
-  <td class="dscr-pair">1.85 <span class="arrow">→</span> <span class="stressed">1.48</span></td>
+  <td class="dscr-pair">1.85 <span class="arrow">â†’</span> <span class="stressed">1.48</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1314,9 +1344,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-4-03x-sde-5c852b7e.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$2.5M – $3M</td>
+  <td class="num-cell">$2.5M â€“ $3M</td>
   <td class="num-cell">4.03x</td>
-  <td class="dscr-pair">1.83 <span class="arrow">→</span> <span class="stressed">1.46</span></td>
+  <td class="dscr-pair">1.83 <span class="arrow">â†’</span> <span class="stressed">1.46</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1327,9 +1357,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-4-08x-sde-26b527e3.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">4.08x</td>
-  <td class="dscr-pair">1.8 <span class="arrow">→</span> <span class="stressed">1.44</span></td>
+  <td class="dscr-pair">1.8 <span class="arrow">â†’</span> <span class="stressed">1.44</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1340,9 +1370,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-tn-hvac-grade-c-4-29x-sde-67d64526.html">Southeast (TN) HVAC Business</a><span class="deal-meta">Southeast (TN)</span></td>
-  <td class="num-cell">$900K – $1M</td>
+  <td class="num-cell">$900K â€“ $1M</td>
   <td class="num-cell">4.29x</td>
-  <td class="dscr-pair">1.72 <span class="arrow">→</span> <span class="stressed">1.37</span></td>
+  <td class="dscr-pair">1.72 <span class="arrow">â†’</span> <span class="stressed">1.37</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1353,9 +1383,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-c-4-39x-sde-ee9ae1d9.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$700K – $800K</td>
+  <td class="num-cell">$700K â€“ $800K</td>
   <td class="num-cell">4.39x</td>
-  <td class="dscr-pair">1.68 <span class="arrow">→</span> <span class="stressed">1.34</span></td>
+  <td class="dscr-pair">1.68 <span class="arrow">â†’</span> <span class="stressed">1.34</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1366,9 +1396,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-4-41x-sde-9e020c43.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$5M – $5.5M</td>
+  <td class="num-cell">$5M â€“ $5.5M</td>
   <td class="num-cell">4.41x</td>
-  <td class="dscr-pair">1.67 <span class="arrow">→</span> <span class="stressed">1.33</span></td>
+  <td class="dscr-pair">1.67 <span class="arrow">â†’</span> <span class="stressed">1.33</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1379,9 +1409,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-4-59x-sde-2f67c2f7.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$800K – $900K</td>
+  <td class="num-cell">$800K â€“ $900K</td>
   <td class="num-cell">4.59x</td>
-  <td class="dscr-pair">1.6 <span class="arrow">→</span> <span class="stressed">1.28</span></td>
+  <td class="dscr-pair">1.6 <span class="arrow">â†’</span> <span class="stressed">1.28</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1392,9 +1422,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-4-61x-sde-0a0afdc7.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">4.61x</td>
-  <td class="dscr-pair">1.6 <span class="arrow">→</span> <span class="stressed">1.28</span></td>
+  <td class="dscr-pair">1.6 <span class="arrow">â†’</span> <span class="stressed">1.28</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1405,9 +1435,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-c-4-63x-sde-6463922b.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$600K – $700K</td>
+  <td class="num-cell">$600K â€“ $700K</td>
   <td class="num-cell">4.63x</td>
-  <td class="dscr-pair">1.59 <span class="arrow">→</span> <span class="stressed">1.27</span></td>
+  <td class="dscr-pair">1.59 <span class="arrow">â†’</span> <span class="stressed">1.27</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1418,9 +1448,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-4-77x-sde-f8ce4537.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$2M – $2.5M</td>
+  <td class="num-cell">$2M â€“ $2.5M</td>
   <td class="num-cell">4.77x</td>
-  <td class="dscr-pair">1.54 <span class="arrow">→</span> <span class="stressed">1.23</span></td>
+  <td class="dscr-pair">1.54 <span class="arrow">â†’</span> <span class="stressed">1.23</span></td>
   <td class="num-cell">~5% off ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1431,9 +1461,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-nc-hvac-grade-c-4-81x-sde-0652bcaf.html">Southeast (NC) HVAC Business</a><span class="deal-meta">Southeast (NC)</span></td>
-  <td class="num-cell">$1.75M – $2M</td>
+  <td class="num-cell">$1.75M â€“ $2M</td>
   <td class="num-cell">4.81x</td>
-  <td class="dscr-pair">1.53 <span class="arrow">→</span> <span class="stressed">1.22</span></td>
+  <td class="dscr-pair">1.53 <span class="arrow">â†’</span> <span class="stressed">1.22</span></td>
   <td class="num-cell">~5% off ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1444,9 +1474,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-4-95x-sde-535f509e.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$2M – $2.5M</td>
+  <td class="num-cell">$2M â€“ $2.5M</td>
   <td class="num-cell">4.95x</td>
-  <td class="dscr-pair">1.49 <span class="arrow">→</span> <span class="stressed">1.19</span></td>
+  <td class="dscr-pair">1.49 <span class="arrow">â†’</span> <span class="stressed">1.19</span></td>
   <td class="num-cell">~5% off ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1457,9 +1487,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-5-85x-sde-fb37e896.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$3.5M – $4M</td>
+  <td class="num-cell">$3.5M â€“ $4M</td>
   <td class="num-cell">5.85x</td>
-  <td class="dscr-pair">1.26 <span class="arrow">→</span> <span class="stressed">1.01</span></td>
+  <td class="dscr-pair">1.26 <span class="arrow">â†’</span> <span class="stressed">1.01</span></td>
   <td class="num-cell">~20% off ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1470,9 +1500,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-5-85x-sde-cf9b899c.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$3.5M – $4M</td>
+  <td class="num-cell">$3.5M â€“ $4M</td>
   <td class="num-cell">5.85x</td>
-  <td class="dscr-pair">1.26 <span class="arrow">→</span> <span class="stressed">1.01</span></td>
+  <td class="dscr-pair">1.26 <span class="arrow">â†’</span> <span class="stressed">1.01</span></td>
   <td class="num-cell">~20% off ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1483,9 +1513,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-6-15x-sde-e230a59a.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$4M – $4.5M</td>
+  <td class="num-cell">$4M â€“ $4.5M</td>
   <td class="num-cell">6.15x</td>
-  <td class="dscr-pair">1.2 <span class="arrow">→</span> <span class="stressed">0.96</span></td>
+  <td class="dscr-pair">1.2 <span class="arrow">â†’</span> <span class="stressed">0.96</span></td>
   <td class="num-cell">~25% off ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1496,9 +1526,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-sc-hvac-grade-c-8-14x-sde-37f61993.html">Southeast (SC) HVAC Business</a><span class="deal-meta">Southeast (SC)</span></td>
-  <td class="num-cell">$4.5M – $5M</td>
+  <td class="num-cell">$4.5M â€“ $5M</td>
   <td class="num-cell">8.14x</td>
-  <td class="dscr-pair">0.9 <span class="arrow">→</span> <span class="stressed">0.72</span></td>
+  <td class="dscr-pair">0.9 <span class="arrow">â†’</span> <span class="stressed">0.72</span></td>
   <td class="num-cell">~45% off ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -1509,22 +1539,22 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-southeast-fl-hvac-grade-c-23-16x-sde-2b237878.html">Southeast (FL) HVAC Business</a><span class="deal-meta">Southeast (FL)</span></td>
-  <td class="num-cell">$150K – $200K</td>
+  <td class="num-cell">$150K â€“ $200K</td>
   <td class="num-cell">23.16x</td>
-  <td class="dscr-pair">0.32 <span class="arrow">→</span> <span class="stressed">0.25</span></td>
+  <td class="dscr-pair">0.32 <span class="arrow">â†’</span> <span class="stressed">0.25</span></td>
   <td class="num-cell">~80% off ask</td>
 </tr>
     </tbody>
   </table>
   </div>
-  <p class="fine-print" style="margin-top:20px;"><a href="listings.html">See the full national list →</a></p>
+  <p class="fine-print" style="margin-top:20px;"><a href="listings.html">See the full national list â†’</a></p>
   
 <div class="sponsor-module">
-  <div class="sponsor-label">Sponsored — SBA Lenders Active in This Category</div>
+  <div class="sponsor-label">Sponsored â€” SBA Lenders Active in This Category</div>
   <div class="sponsor-grid">
     <div class="sponsor-card"><h4>Live Oak Bank</h4><p>National SBA 7(a) volume leader for trades &amp; home-service acquisitions.</p></div>
     <div class="sponsor-card"><h4>Newtek / NSBF</h4><p>Non-bank SBA lender, fast pre-qualification for owner-operator deals.</p></div>
-    <div class="sponsor-card"><h4>Ready Capital</h4><p>SBA 7(a) &amp; 504, strong in $750K–$3M service-business acquisitions.</p></div>
+    <div class="sponsor-card"><h4>Ready Capital</h4><p>SBA 7(a) &amp; 504, strong in $750Kâ€“$3M service-business acquisitions.</p></div>
   </div>
   <div class="sponsor-disclosure">Placement is paid and does not affect grading or ranking. Grades are computed independently from stressed DSCR.</div>
 </div>

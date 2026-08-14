@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Midwest (MO) HVAC Business: 5.08x SDE Multiple, 1.16x Stressed DSCR — Grade C | Bizvetting</title>
-<meta name="description" content="Midwest (MO) HVAC/Plumbing/Electrical business, Grade C: 5.08x SDE multiple, 1.45x as-stated DSCR / 1.16x stressed DSCR. Asking price band $1.25M – $1.5M. Free underwriting breakdown, no signup required. (Listing #4C94862D)">
+<title>Midwest (MO) HVAC Business: 5.08x SDE Multiple, 1.16x Stressed DSCR â€” Grade C | Bizvetting</title>
+<meta name="description" content="Midwest (MO) HVAC/Plumbing/Electrical business, Grade C: 5.08x SDE multiple, 1.45x as-stated DSCR / 1.16x stressed DSCR. Asking price band $1.25M â€“ $1.5M. Free underwriting breakdown, no signup required. (Listing #4C94862D)">
 <link rel="canonical" href="https://bizvetting.com/deal-midwest-mo-hvac-grade-c-5-08x-sde-4c94862d.html">
 <meta property="og:type" content="product">
-<meta property="og:title" content="Midwest (MO) HVAC Business: 5.08x SDE Multiple, 1.16x Stressed DSCR — Grade C">
-<meta property="og:description" content="Midwest (MO) HVAC/Plumbing/Electrical business, Grade C: 5.08x SDE multiple, 1.45x as-stated DSCR / 1.16x stressed DSCR. Asking price band $1.25M – $1.5M. Free underwriting breakdown, no signup required. (Listing #4C94862D)">
+<meta property="og:title" content="Midwest (MO) HVAC Business: 5.08x SDE Multiple, 1.16x Stressed DSCR â€” Grade C">
+<meta property="og:description" content="Midwest (MO) HVAC/Plumbing/Electrical business, Grade C: 5.08x SDE multiple, 1.45x as-stated DSCR / 1.16x stressed DSCR. Asking price band $1.25M â€“ $1.5M. Free underwriting breakdown, no signup required. (Listing #4C94862D)">
 <meta property="og:url" content="https://bizvetting.com/deal-midwest-mo-hvac-grade-c-5-08x-sde-4c94862d.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   Token system — v3 "Inspection Tag"
+   Token system â€” v3 "Inspection Tag"
    Concept: the grade is a physical hang-tag, like the inspection
-   or permit tag zip-tied to an HVAC unit after a service call —
+   or permit tag zip-tied to an HVAC unit after a service call â€”
    grounded in the trade itself, not a rating-agency seal or an
    editorial magazine card (both already tried). Blueprint-navy
    field with a faint drafting grid, grotesque display type
@@ -152,9 +152,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 .filter-count { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-dim); margin-left: auto; align-self: center; }
 .ledger-table thead th.sortable { cursor: pointer; user-select: none; }
 .ledger-table thead th.sortable:hover { color: var(--ink); }
-.ledger-table thead th.sortable::after { content: " ↕"; color: var(--ink-dim); font-size: 10px; }
-.ledger-table thead th.sort-asc::after { content: " ↑"; color: var(--orange); }
-.ledger-table thead th.sort-desc::after { content: " ↓"; color: var(--orange); }
+.ledger-table thead th.sortable::after { content: " â†•"; color: var(--ink-dim); font-size: 10px; }
+.ledger-table thead th.sort-asc::after { content: " â†‘"; color: var(--orange); }
+.ledger-table thead th.sort-desc::after { content: " â†“"; color: var(--orange); }
 @media (max-width: 780px) {
   .filter-bar-controls { flex-direction: column; align-items: stretch; }
   .filter-count { margin-left: 0; }
@@ -300,22 +300,52 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <div class="site-header-inner">
     <a class="wordmark-block" href="index.html">
       <span class="wordmark">Biz<span>vetting</span></span>
-      <span class="wordmark-tag">In-demand, on-market businesses — pre-underwritten &amp; ranked, accelerating your path to ownership</span>
+      <span class="wordmark-tag">In-demand, on-market businesses â€” pre-underwritten &amp; ranked, accelerating your path to ownership</span>
     </a>
     <nav class="header-nav">
       <a class="current" href="listings.html">HVAC / Plumbing / Electrical</a>
       <a href="#">Self-Storage</a>
       <a href="#">Methodology</a>
       <a href="#">Membership</a>
+      <span id="authStatus"></span>
     </nav>
   </div>
 </header>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  const _sbAuth = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
+  const el = document.getElementById('authStatus');
+  if (el) {
+    _sbAuth.auth.getSession().then(function (res) {
+      const session = res.data.session;
+      if (session) {
+        el.innerHTML = '<a href="#" id="logoutLink">Log Out</a>';
+        document.getElementById('logoutLink').onclick = function (e) {
+          e.preventDefault();
+          _sbAuth.auth.signOut().then(function () { window.location.reload(); });
+        };
+      } else {
+        el.innerHTML = '<a href="#" id="loginLink">Log In</a>';
+        document.getElementById('loginLink').onclick = function (e) {
+          e.preventDefault();
+          const email = prompt('Enter your email to receive a login link:');
+          if (!email) return;
+          _sbAuth.auth.signInWithOtp({ email: email }).then(function (r) {
+            alert(r.error ? ('Something went wrong: ' + r.error.message) : 'Check your email for a login link.');
+          });
+        };
+      }
+    });
+  }
+})();
+</script>
 <div class="deal-header wrap">
   <div class="breadcrumb"><a href="listings.html">HVAC / Plumbing / Electrical</a> / Midwest (MO)</div>
   <div class="deal-header-row">
     <div>
-      <h1 class="deal-h1">Midwest (MO) HVAC Business: 5.08x SDE Multiple, 1.16x Stressed DSCR — Grade C<span class="deal-ref">#4C94862D</span></h1>
-      <div class="deal-location">Midwest (MO) · HVAC / Plumbing / Electrical Services</div>
+      <h1 class="deal-h1">Midwest (MO) HVAC Business: 5.08x SDE Multiple, 1.16x Stressed DSCR â€” Grade C<span class="deal-ref">#4C94862D</span></h1>
+      <div class="deal-location">Midwest (MO) Â· HVAC / Plumbing / Electrical Services</div>
     </div>
     <svg viewBox="0 0 88 112" width="88" height="112" xmlns="http://www.w3.org/2000/svg">
   <line x1="44.0" y1="0" x2="44.0" y2="17.68" stroke="#8CA0B3" stroke-width="1.4" stroke-dasharray="2 2"/>
@@ -331,27 +361,27 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <main>
     <p class="section-label">Financing Snapshot</p>
     <table class="figures-table">
-      <tr><th>Asking price band</th><td>$1.25M – $1.5M</td></tr>
+      <tr><th>Asking price band</th><td>$1.25M â€“ $1.5M</td></tr>
       <tr><th>SDE multiple</th><td>5.08x</td></tr>
-      <tr><th>DSCR — as stated</th><td>1.45</td></tr>
-      <tr><th>DSCR — stressed<span class="sub-note">SDE haircut 20%, per SBA lender stress-test convention</span></th><td>1.16</td></tr>
+      <tr><th>DSCR â€” as stated</th><td>1.45</td></tr>
+      <tr><th>DSCR â€” stressed<span class="sub-note">SDE haircut 20%, per SBA lender stress-test convention</span></th><td>1.16</td></tr>
       <tr><th>Price move to hit 1.25x stressed<span class="sub-note">Standard SBA lender comfort threshold</span></th><td>~10% off ask</td></tr>
     </table>
 
     <p class="section-label">About This Listing</p>
     <div class="prose">
-      <p>This is a HVAC/Plumbing/Electrical service business currently listed for sale in Midwest (MO). It has been screened against this cycle's batch of comparable listings and graded C — tight relative to the current market, based on how much cushion remains in its cash flow after a standardized SBA stress test, not an absolute rating of the business itself.</p>
+      <p>This is a HVAC/Plumbing/Electrical service business currently listed for sale in Midwest (MO). It has been screened against this cycle's batch of comparable listings and graded C â€” tight relative to the current market, based on how much cushion remains in its cash flow after a standardized SBA stress test, not an absolute rating of the business itself.</p>
       <p>Full listing details, including the exact asking price, target-offer price, and a direct link to the original listing, are available to members.</p>
     </div>
   </main>
 
   <aside>
     <div class="rail-block gate-card">
-      <div class="gate-row gate-blur"><span class="label">Exact asking price</span><span class="val">$████,███</span></div>
-      <div class="gate-row gate-blur"><span class="label">Est. annual debt service</span><span class="val">$██,███</span></div>
-      <div class="gate-row gate-blur"><span class="label">Broker contact</span><span class="val">██████████</span></div>
-      <div class="gate-row gate-blur"><span class="label">Target offer price</span><span class="val">$████,███</span></div>
-      <div class="gate-row gate-blur"><span class="label">Original listing</span><span class="val">██████████</span></div>
+      <div class="gate-row gate-blur"><span class="label">Exact asking price</span><span class="val">$â–ˆâ–ˆâ–ˆâ–ˆ,â–ˆâ–ˆâ–ˆ</span></div>
+      <div class="gate-row gate-blur"><span class="label">Est. annual debt service</span><span class="val">$â–ˆâ–ˆ,â–ˆâ–ˆâ–ˆ</span></div>
+      <div class="gate-row gate-blur"><span class="label">Broker contact</span><span class="val">â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ</span></div>
+      <div class="gate-row gate-blur"><span class="label">Target offer price</span><span class="val">$â–ˆâ–ˆâ–ˆâ–ˆ,â–ˆâ–ˆâ–ˆ</span></div>
+      <div class="gate-row gate-blur"><span class="label">Original listing</span><span class="val">â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ</span></div>
       <div class="gate-overlay">
         <div class="gate-lock">&#128274;</div>
         <p class="gate-cta-text">Unlock the exact price, target-offer price, and a direct link to the original listing.</p>
@@ -364,11 +394,11 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 
 <div class="wrap">
 <div class="sponsor-module">
-  <div class="sponsor-label">Sponsored — SBA Lenders Active in This Category</div>
+  <div class="sponsor-label">Sponsored â€” SBA Lenders Active in This Category</div>
   <div class="sponsor-grid">
     <div class="sponsor-card"><h4>Live Oak Bank</h4><p>National SBA 7(a) volume leader for trades &amp; home-service acquisitions.</p></div>
     <div class="sponsor-card"><h4>Newtek / NSBF</h4><p>Non-bank SBA lender, fast pre-qualification for owner-operator deals.</p></div>
-    <div class="sponsor-card"><h4>Ready Capital</h4><p>SBA 7(a) &amp; 504, strong in $750K–$3M service-business acquisitions.</p></div>
+    <div class="sponsor-card"><h4>Ready Capital</h4><p>SBA 7(a) &amp; 504, strong in $750Kâ€“$3M service-business acquisitions.</p></div>
   </div>
   <div class="sponsor-disclosure">Placement is paid and does not affect grading or ranking. Grades are computed independently from stressed DSCR.</div>
 </div>
@@ -383,7 +413,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   const SUPABASE_ANON_KEY = "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT";
 
   // Every deal page's own slug, so this same script works unmodified on
-  // all 333+ pages — derived from the filename itself.
+  // all 333+ pages â€” derived from the filename itself.
   const PAGE_SLUG = window.location.pathname
     .split('/').pop()
     .replace(/^deal-/, '')
@@ -401,7 +431,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
       return;
     }
 
-    // Logged in — check this specific deal's real gated data.
+    // Logged in â€” check this specific deal's real gated data.
     const { data, error } = await supabase
       .from('deals_public')
       .select('exact_price, broker_name, broker_contact, target_price, annual_debt_service, source_url, member_content_unlocked')
@@ -441,7 +471,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   function renderUpgradePrompt(gateCard) {
     const ctaText = gateCard.querySelector('.gate-cta-text');
     if (ctaText) {
-      ctaText.textContent = "You're logged in — become a member to unlock this listing's exact price, broker contact, and target-offer price.";
+      ctaText.textContent = "You're logged in â€” become a member to unlock this listing's exact price, broker contact, and target-offer price.";
     }
     const memberBtn = gateCard.querySelector('.btn-orange');
     if (memberBtn) {
@@ -498,7 +528,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
           link.href = data.source_url;
           link.target = '_blank';
           link.rel = 'noopener noreferrer';
-          link.textContent = 'View listing →';
+          link.textContent = 'View listing â†’';
           val.appendChild(link);
         } else {
           val.textContent = 'Not available';

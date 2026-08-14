@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mountain West HVAC/Plumbing/Electrical Businesses for Sale — Graded for SBA Financing | Bizvetting</title>
+<title>Mountain West HVAC/Plumbing/Electrical Businesses for Sale â€” Graded for SBA Financing | Bizvetting</title>
 <meta name="description" content="18 HVAC/Plumbing/Electrical businesses for sale in Mountain West, Grade A/B/C (10/5/3), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
 <link rel="canonical" href="https://bizvetting.com/hub-mountain-west.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mountain West HVAC/Plumbing/Electrical Businesses for Sale — Graded for SBA Financing">
+<meta property="og:title" content="Mountain West HVAC/Plumbing/Electrical Businesses for Sale â€” Graded for SBA Financing">
 <meta property="og:description" content="18 HVAC/Plumbing/Electrical businesses for sale in Mountain West, Grade A/B/C (10/5/3), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
 <meta property="og:url" content="https://bizvetting.com/hub-mountain-west.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   Token system — v3 "Inspection Tag"
+   Token system â€” v3 "Inspection Tag"
    Concept: the grade is a physical hang-tag, like the inspection
-   or permit tag zip-tied to an HVAC unit after a service call —
+   or permit tag zip-tied to an HVAC unit after a service call â€”
    grounded in the trade itself, not a rating-agency seal or an
    editorial magazine card (both already tried). Blueprint-navy
    field with a faint drafting grid, grotesque display type
@@ -152,9 +152,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 .filter-count { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-dim); margin-left: auto; align-self: center; }
 .ledger-table thead th.sortable { cursor: pointer; user-select: none; }
 .ledger-table thead th.sortable:hover { color: var(--ink); }
-.ledger-table thead th.sortable::after { content: " ↕"; color: var(--ink-dim); font-size: 10px; }
-.ledger-table thead th.sort-asc::after { content: " ↑"; color: var(--orange); }
-.ledger-table thead th.sort-desc::after { content: " ↓"; color: var(--orange); }
+.ledger-table thead th.sortable::after { content: " â†•"; color: var(--ink-dim); font-size: 10px; }
+.ledger-table thead th.sort-asc::after { content: " â†‘"; color: var(--orange); }
+.ledger-table thead th.sort-desc::after { content: " â†“"; color: var(--orange); }
 @media (max-width: 780px) {
   .filter-bar-controls { flex-direction: column; align-items: stretch; }
   .filter-count { margin-left: 0; }
@@ -359,25 +359,55 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <div class="site-header-inner">
     <a class="wordmark-block" href="index.html">
       <span class="wordmark">Biz<span>vetting</span></span>
-      <span class="wordmark-tag">In-demand, on-market businesses — pre-underwritten &amp; ranked, accelerating your path to ownership</span>
+      <span class="wordmark-tag">In-demand, on-market businesses â€” pre-underwritten &amp; ranked, accelerating your path to ownership</span>
     </a>
     <nav class="header-nav">
       <a class="current" href="listings.html">HVAC / Plumbing / Electrical</a>
       <a href="#">Self-Storage</a>
       <a href="#">Methodology</a>
       <a href="#">Membership</a>
+      <span id="authStatus"></span>
     </nav>
   </div>
 </header>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  const _sbAuth = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
+  const el = document.getElementById('authStatus');
+  if (el) {
+    _sbAuth.auth.getSession().then(function (res) {
+      const session = res.data.session;
+      if (session) {
+        el.innerHTML = '<a href="#" id="logoutLink">Log Out</a>';
+        document.getElementById('logoutLink').onclick = function (e) {
+          e.preventDefault();
+          _sbAuth.auth.signOut().then(function () { window.location.reload(); });
+        };
+      } else {
+        el.innerHTML = '<a href="#" id="loginLink">Log In</a>';
+        document.getElementById('loginLink').onclick = function (e) {
+          e.preventDefault();
+          const email = prompt('Enter your email to receive a login link:');
+          if (!email) return;
+          _sbAuth.auth.signInWithOtp({ email: email }).then(function (r) {
+            alert(r.error ? ('Something went wrong: ' + r.error.message) : 'Check your email for a login link.');
+          });
+        };
+      }
+    });
+  }
+})();
+</script>
 <div class="batch-banner wrap">
-  <div class="hero-eyebrow">Region — Cycle 2026.08</div>
+  <div class="hero-eyebrow">Region â€” Cycle 2026.08</div>
   <h1 class="batch-title">Mountain West HVAC/Plumbing/Electrical Businesses, Graded for SBA Financing</h1>
-  <p class="batch-sub">18 HVAC/Plumbing/Electrical businesses for sale in Mountain West, run through the same SBA 7(a) underwriting math as every other listing and graded against the full current batch — not just against each other. 10 Grade A · 5 Grade B · 3 Grade C.</p>
+  <p class="batch-sub">18 HVAC/Plumbing/Electrical businesses for sale in Mountain West, run through the same SBA 7(a) underwriting math as every other listing and graded against the full current batch â€” not just against each other. 10 Grade A Â· 5 Grade B Â· 3 Grade C.</p>
 </div>
 <div class="ledger wrap">
   <div class="ledger-panel">
   <table class="ledger-table">
-    <thead><tr><th></th><th>Business</th><th>Asking price</th><th>SDE multiple</th><th>DSCR — stated → stressed</th><th>To hit 1.25x</th></tr></thead>
+    <thead><tr><th></th><th>Business</th><th>Asking price</th><th>SDE multiple</th><th>DSCR â€” stated â†’ stressed</th><th>To hit 1.25x</th></tr></thead>
     <tbody>
       <tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -388,9 +418,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-id-hvac-grade-a-1-18x-sde-8c47fd61.html">Mountain West (ID) HVAC Business</a><span class="deal-meta">Mountain West (ID)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">1.18x</td>
-  <td class="dscr-pair">6.25 <span class="arrow">→</span> <span class="stressed">5.0</span></td>
+  <td class="dscr-pair">6.25 <span class="arrow">â†’</span> <span class="stressed">5.0</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -401,9 +431,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-id-hvac-grade-a-1-27x-sde-7b0b53fb.html">Mountain West (ID) HVAC Business</a><span class="deal-meta">Mountain West (ID)</span></td>
-  <td class="num-cell">$100K – $150K</td>
+  <td class="num-cell">$100K â€“ $150K</td>
   <td class="num-cell">1.27x</td>
-  <td class="dscr-pair">5.78 <span class="arrow">→</span> <span class="stressed">4.62</span></td>
+  <td class="dscr-pair">5.78 <span class="arrow">â†’</span> <span class="stressed">4.62</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -414,9 +444,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-nv-hvac-grade-a-1-6x-sde-e7126065.html">Mountain West (NV) HVAC Business</a><span class="deal-meta">Mountain West (NV)</span></td>
-  <td class="num-cell">$300K – $350K</td>
+  <td class="num-cell">$300K â€“ $350K</td>
   <td class="num-cell">1.6x</td>
-  <td class="dscr-pair">4.59 <span class="arrow">→</span> <span class="stressed">3.68</span></td>
+  <td class="dscr-pair">4.59 <span class="arrow">â†’</span> <span class="stressed">3.68</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -427,9 +457,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-a-1-64x-sde-696a9d44.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$350K – $400K</td>
+  <td class="num-cell">$350K â€“ $400K</td>
   <td class="num-cell">1.64x</td>
-  <td class="dscr-pair">4.48 <span class="arrow">→</span> <span class="stressed">3.58</span></td>
+  <td class="dscr-pair">4.48 <span class="arrow">â†’</span> <span class="stressed">3.58</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -440,9 +470,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-a-1-74x-sde-d00e8542.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$500K – $600K</td>
+  <td class="num-cell">$500K â€“ $600K</td>
   <td class="num-cell">1.74x</td>
-  <td class="dscr-pair">4.23 <span class="arrow">→</span> <span class="stressed">3.39</span></td>
+  <td class="dscr-pair">4.23 <span class="arrow">â†’</span> <span class="stressed">3.39</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -453,9 +483,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-a-1-88x-sde-2fdfb97d.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$450K – $500K</td>
+  <td class="num-cell">$450K â€“ $500K</td>
   <td class="num-cell">1.88x</td>
-  <td class="dscr-pair">3.92 <span class="arrow">→</span> <span class="stressed">3.14</span></td>
+  <td class="dscr-pair">3.92 <span class="arrow">â†’</span> <span class="stressed">3.14</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -466,9 +496,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-id-hvac-grade-a-1-94x-sde-3c4ae423.html">Mountain West (ID) HVAC Business</a><span class="deal-meta">Mountain West (ID)</span></td>
-  <td class="num-cell">$400K – $450K</td>
+  <td class="num-cell">$400K â€“ $450K</td>
   <td class="num-cell">1.94x</td>
-  <td class="dscr-pair">3.8 <span class="arrow">→</span> <span class="stressed">3.04</span></td>
+  <td class="dscr-pair">3.8 <span class="arrow">â†’</span> <span class="stressed">3.04</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -479,9 +509,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-a-1-95x-sde-8bfd9fa7.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$200K – $250K</td>
+  <td class="num-cell">$200K â€“ $250K</td>
   <td class="num-cell">1.95x</td>
-  <td class="dscr-pair">3.77 <span class="arrow">→</span> <span class="stressed">3.02</span></td>
+  <td class="dscr-pair">3.77 <span class="arrow">â†’</span> <span class="stressed">3.02</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -492,9 +522,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-nv-hvac-grade-a-2-2x-sde-01ae9fda.html">Mountain West (NV) HVAC Business</a><span class="deal-meta">Mountain West (NV)</span></td>
-  <td class="num-cell">$1M – $1.25M</td>
+  <td class="num-cell">$1M â€“ $1.25M</td>
   <td class="num-cell">2.2x</td>
-  <td class="dscr-pair">3.35 <span class="arrow">→</span> <span class="stressed">2.68</span></td>
+  <td class="dscr-pair">3.35 <span class="arrow">â†’</span> <span class="stressed">2.68</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -505,9 +535,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-a-2-38x-sde-70d8d0ae.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$350K – $400K</td>
+  <td class="num-cell">$350K â€“ $400K</td>
   <td class="num-cell">2.38x</td>
-  <td class="dscr-pair">3.1 <span class="arrow">→</span> <span class="stressed">2.48</span></td>
+  <td class="dscr-pair">3.1 <span class="arrow">â†’</span> <span class="stressed">2.48</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -518,9 +548,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-b-2-69x-sde-16299e11.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$250K – $300K</td>
+  <td class="num-cell">$250K â€“ $300K</td>
   <td class="num-cell">2.69x</td>
-  <td class="dscr-pair">2.73 <span class="arrow">→</span> <span class="stressed">2.18</span></td>
+  <td class="dscr-pair">2.73 <span class="arrow">â†’</span> <span class="stressed">2.18</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -531,9 +561,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-b-2-76x-sde-33bf4598.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$350K – $400K</td>
+  <td class="num-cell">$350K â€“ $400K</td>
   <td class="num-cell">2.76x</td>
-  <td class="dscr-pair">2.67 <span class="arrow">→</span> <span class="stressed">2.14</span></td>
+  <td class="dscr-pair">2.67 <span class="arrow">â†’</span> <span class="stressed">2.14</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -544,9 +574,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-nv-hvac-grade-b-3-06x-sde-2410f424.html">Mountain West (NV) HVAC Business</a><span class="deal-meta">Mountain West (NV)</span></td>
-  <td class="num-cell">$1.25M – $1.5M</td>
+  <td class="num-cell">$1.25M â€“ $1.5M</td>
   <td class="num-cell">3.06x</td>
-  <td class="dscr-pair">2.4 <span class="arrow">→</span> <span class="stressed">1.92</span></td>
+  <td class="dscr-pair">2.4 <span class="arrow">â†’</span> <span class="stressed">1.92</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -557,9 +587,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-b-3-23x-sde-8ab86c42.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$350K – $400K</td>
+  <td class="num-cell">$350K â€“ $400K</td>
   <td class="num-cell">3.23x</td>
-  <td class="dscr-pair">2.28 <span class="arrow">→</span> <span class="stressed">1.83</span></td>
+  <td class="dscr-pair">2.28 <span class="arrow">â†’</span> <span class="stressed">1.83</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -570,9 +600,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#E0AC3F">B</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-id-hvac-grade-b-3-58x-sde-f615839c.html">Mountain West (ID) HVAC Business</a><span class="deal-meta">Mountain West (ID)</span></td>
-  <td class="num-cell">$2.5M – $3M</td>
+  <td class="num-cell">$2.5M â€“ $3M</td>
   <td class="num-cell">3.58x</td>
-  <td class="dscr-pair">2.05 <span class="arrow">→</span> <span class="stressed">1.64</span></td>
+  <td class="dscr-pair">2.05 <span class="arrow">â†’</span> <span class="stressed">1.64</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -583,9 +613,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-c-3-9x-sde-6c9f3057.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$1.75M – $2M</td>
+  <td class="num-cell">$1.75M â€“ $2M</td>
   <td class="num-cell">3.9x</td>
-  <td class="dscr-pair">1.89 <span class="arrow">→</span> <span class="stressed">1.51</span></td>
+  <td class="dscr-pair">1.89 <span class="arrow">â†’</span> <span class="stressed">1.51</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -596,9 +626,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-co-hvac-grade-c-4-04x-sde-3c89e8a3.html">Mountain West (CO) HVAC Business</a><span class="deal-meta">Mountain West (CO)</span></td>
-  <td class="num-cell">$350K – $400K</td>
+  <td class="num-cell">$350K â€“ $400K</td>
   <td class="num-cell">4.04x</td>
-  <td class="dscr-pair">1.82 <span class="arrow">→</span> <span class="stressed">1.46</span></td>
+  <td class="dscr-pair">1.82 <span class="arrow">â†’</span> <span class="stressed">1.46</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -609,22 +639,22 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#D66650">C</text>
 </svg></td>
   <td class="deal-title-cell"><a href="deal-mountain-west-nv-hvac-grade-c-5-58x-sde-d231f7da.html">Mountain West (NV) HVAC Business</a><span class="deal-meta">Mountain West (NV)</span></td>
-  <td class="num-cell">$1.75M – $2M</td>
+  <td class="num-cell">$1.75M â€“ $2M</td>
   <td class="num-cell">5.58x</td>
-  <td class="dscr-pair">1.32 <span class="arrow">→</span> <span class="stressed">1.05</span></td>
+  <td class="dscr-pair">1.32 <span class="arrow">â†’</span> <span class="stressed">1.05</span></td>
   <td class="num-cell">~20% off ask</td>
 </tr>
     </tbody>
   </table>
   </div>
-  <p class="fine-print" style="margin-top:20px;"><a href="listings.html">See the full national list →</a></p>
+  <p class="fine-print" style="margin-top:20px;"><a href="listings.html">See the full national list â†’</a></p>
   
 <div class="sponsor-module">
-  <div class="sponsor-label">Sponsored — SBA Lenders Active in This Category</div>
+  <div class="sponsor-label">Sponsored â€” SBA Lenders Active in This Category</div>
   <div class="sponsor-grid">
     <div class="sponsor-card"><h4>Live Oak Bank</h4><p>National SBA 7(a) volume leader for trades &amp; home-service acquisitions.</p></div>
     <div class="sponsor-card"><h4>Newtek / NSBF</h4><p>Non-bank SBA lender, fast pre-qualification for owner-operator deals.</p></div>
-    <div class="sponsor-card"><h4>Ready Capital</h4><p>SBA 7(a) &amp; 504, strong in $750K–$3M service-business acquisitions.</p></div>
+    <div class="sponsor-card"><h4>Ready Capital</h4><p>SBA 7(a) &amp; 504, strong in $750Kâ€“$3M service-business acquisitions.</p></div>
   </div>
   <div class="sponsor-disclosure">Placement is paid and does not affect grading or ranking. Grades are computed independently from stressed DSCR.</div>
 </div>
