@@ -37,13 +37,14 @@ $new = @'
 </script>
 '@
 
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
 $files = Get-ChildItem -Filter *.html
 $updated = 0
 foreach ($file in $files) {
-    $content = Get-Content $file.FullName -Raw
+    $content = [System.IO.File]::ReadAllText($file.FullName, [System.Text.Encoding]::UTF8)
     if ($content.Contains($old)) {
         $content = $content.Replace($old, $new)
-        [System.IO.File]::WriteAllText($file.FullName, $content)
+        [System.IO.File]::WriteAllText($file.FullName, $content, $utf8NoBom)
         $updated++
     }
 }
