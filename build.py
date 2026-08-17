@@ -9,8 +9,8 @@ ineligible = data['ineligible']
 # Vertical-level constants — change these three lines to retarget the whole
 # build at a different category (e.g. Self-Storage) without hunting for
 # hardcoded strings elsewhere in the file.
-CATEGORY_NAME = "HVAC/Plumbing/Electrical"
-CATEGORY_LABEL = "HVAC / Plumbing / Electrical"  # display form with spacing
+CATEGORY_NAME = "HVAC"
+CATEGORY_LABEL = "HVAC"  # display form with spacing
 CATEGORY_SHORT = "HVAC"  # used in short-form copy contexts
 
 # Single source of truth for the domain — update this one line once registered,
