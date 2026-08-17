@@ -266,34 +266,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   </div>
 </header>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(function () {
-  const _sbAuth = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
-  const el = document.getElementById('authStatus');
-  if (el) {
-    _sbAuth.auth.getSession().then(function (res) {
-      const session = res.data.session;
-      if (session) {
-        el.innerHTML = '<a href="#" id="logoutLink">Log Out</a>';
-        document.getElementById('logoutLink').onclick = function (e) {
-          e.preventDefault();
-          _sbAuth.auth.signOut().then(function () { window.location.reload(); });
-        };
-      } else {
-        el.innerHTML = '<a href="#" id="loginLink">Log In</a>';
-        document.getElementById('loginLink').onclick = function (e) {
-          e.preventDefault();
-          const email = prompt('Enter your email to receive a login link:');
-          if (!email) return;
-          _sbAuth.auth.signInWithOtp({ email: email }).then(function (r) {
-            alert(r.error ? ('Something went wrong: ' + r.error.message) : 'Check your email for a login link.');
-          });
-        };
-      }
-    });
-  }
-})();
-</script>
+<script src="assets/membership.js"></script>
 <div class="hero wrap">
   <div class="hero-eyebrow">Batch No. 2026.08 — SBA 7(a) Underwriting Cycle</div>
   <h1 class="hero-title">Every HVAC, plumbing &amp; electrical listing, <span class="hl">tagged and inspected</span> before you call the broker.</h1>
@@ -413,44 +386,10 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 <footer class="site-footer"><div class="wrap">
   Bizvetting grades HVAC businesses for sale against standardized SBA 7(a) underwriting math. Deal figures are estimates for screening purposes only, derived from public listing data and standardized assumptions (12.5% down, 9.5% rate, 10-yr term, 20% SDE stress haircut). Not a substitute for lender underwriting or a CPA-reviewed quality-of-earnings review. Grades are relative to the current batch, not an absolute rating.
 </div></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const _sb = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
-
-document.getElementById('landingMemberBtn').onclick = async function(e) {
+document.getElementById('landingMemberBtn').onclick = function (e) {
   e.preventDefault();
-  const btn = e.target;
-  const { data: { session } } = await _sb.auth.getSession();
-  if (!session) {
-    const email = prompt('Enter your email to receive a login link:');
-    if (!email) return;
-    const { error } = await _sb.auth.signInWithOtp({ email });
-    if (error) {
-      alert('Something went wrong: ' + error.message);
-    } else {
-      alert('Check your email for a login link, then come back and click Become a Member again.');
-    }
-    return;
-  }
-  btn.textContent = 'Redirecting...';
-  try {
-    const res = await fetch("https://zvzccgbzfmnjzjyqxaay.supabase.co" + '/functions/v1/create-checkout-session', {
-      method: 'POST',
-      headers: { 'Authorization': 'Bearer ' + session.access_token, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ return_path: '/listings.html' }),
-    });
-    const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert('Something went wrong starting checkout: ' + (data.error || 'unknown error'));
-      btn.textContent = 'Become a Member →';
-    }
-  } catch (err) {
-    console.error('Checkout error:', err);
-    alert('Something went wrong. Please try again.');
-    btn.textContent = 'Become a Member →';
-  }
+  BVMembership.startOrDeferCheckout(e.target, '/listings.html');
 };
 async function handleSubmit(e){
   e.preventDefault();
@@ -460,7 +399,7 @@ async function handleSubmit(e){
   errorMsg.style.display = 'none';
   button.textContent = 'Submitting...';
   try {
-    const { error } = await _sb.from('email_leads').insert({ email: emailInput.value, source: 'landing_page' });
+    const { error } = await BVMembership.sb.from('email_leads').insert({ email: emailInput.value, source: 'landing_page' });
     if (error) throw error;
     document.getElementById('confirmMsg').style.display='block';
     e.target.reset();

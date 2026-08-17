@@ -266,34 +266,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   </div>
 </header>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(function () {
-  const _sbAuth = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
-  const el = document.getElementById('authStatus');
-  if (el) {
-    _sbAuth.auth.getSession().then(function (res) {
-      const session = res.data.session;
-      if (session) {
-        el.innerHTML = '<a href="#" id="logoutLink">Log Out</a>';
-        document.getElementById('logoutLink').onclick = function (e) {
-          e.preventDefault();
-          _sbAuth.auth.signOut().then(function () { window.location.reload(); });
-        };
-      } else {
-        el.innerHTML = '<a href="#" id="loginLink">Log In</a>';
-        document.getElementById('loginLink').onclick = function (e) {
-          e.preventDefault();
-          const email = prompt('Enter your email to receive a login link:');
-          if (!email) return;
-          _sbAuth.auth.signInWithOtp({ email: email }).then(function (r) {
-            alert(r.error ? ('Something went wrong: ' + r.error.message) : 'Check your email for a login link.');
-          });
-        };
-      }
-    });
-  }
-})();
-</script>
+<script src="assets/membership.js"></script>
 <div class="batch-banner wrap">
   <div class="hero-eyebrow">Current Batch — Cycle 2026.08</div>
   <h1 class="batch-title">HVAC, Plumbing &amp; Electrical Businesses, Tagged for SBA Financing</h1>
@@ -4721,18 +4694,17 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 <footer class="site-footer"><div class="wrap">
   Bizvetting grades HVAC businesses for sale against standardized SBA 7(a) underwriting math. Deal figures are estimates for screening purposes only, derived from public listing data and standardized assumptions (12.5% down, 9.5% rate, 10-yr term, 20% SDE stress haircut). Not a substitute for lender underwriting or a CPA-reviewed quality-of-earnings review. Grades are relative to the current batch, not an absolute rating.
 </div></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function () {
-  const _sb = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
+  const sb = BVMembership.sb;
 
   async function checkMembership() {
-    const { data: { session } } = await _sb.auth.getSession();
+    const { data: { session } } = await sb.auth.getSession();
     if (!session) return false;
     // member_content_unlocked is derived purely from the session, not from
     // which row is queried -- any single row tells us the same answer, so
     // this doesn't need to touch gated data to check membership status.
-    const { data } = await _sb.from('deals_public').select('member_content_unlocked').limit(1).single();
+    const { data } = await sb.from('deals_public').select('member_content_unlocked').limit(1).single();
     return data ? data.member_content_unlocked : false;
   }
 
@@ -4811,30 +4783,9 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
       document.getElementById('filterBarControls').style.display = 'flex';
       initFilters();
     } else {
-      document.getElementById('filterUpsellBtn').onclick = async function (e) {
+      document.getElementById('filterUpsellBtn').onclick = function (e) {
         e.preventDefault();
-        const { data: { session } } = await _sb.auth.getSession();
-        if (!session) {
-          const email = prompt('Enter your email to receive a login link:');
-          if (!email) return;
-          const { error } = await _sb.auth.signInWithOtp({ email });
-          alert(error ? ('Something went wrong: ' + error.message) : 'Check your email for a login link, then come back and try again.');
-          return;
-        }
-        e.target.textContent = 'Redirecting...';
-        try {
-          const res = await fetch("https://zvzccgbzfmnjzjyqxaay.supabase.co" + '/functions/v1/create-checkout-session', {
-            method: 'POST',
-            headers: { 'Authorization': 'Bearer ' + session.access_token, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ return_path: '/listings.html' }),
-          });
-          const data = await res.json();
-          if (data.url) window.location.href = data.url;
-          else alert('Something went wrong: ' + (data.error || 'unknown error'));
-        } catch (err) {
-          console.error('Checkout error:', err);
-          alert('Something went wrong. Please try again.');
-        }
+        BVMembership.startOrDeferCheckout(e.target, '/listings.html');
       };
     }
   }

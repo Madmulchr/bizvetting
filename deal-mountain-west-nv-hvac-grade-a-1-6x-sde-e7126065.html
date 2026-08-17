@@ -312,34 +312,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   </div>
 </header>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(function () {
-  const _sbAuth = window.supabase.createClient("https://zvzccgbzfmnjzjyqxaay.supabase.co", "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT");
-  const el = document.getElementById('authStatus');
-  if (el) {
-    _sbAuth.auth.getSession().then(function (res) {
-      const session = res.data.session;
-      if (session) {
-        el.innerHTML = '<a href="#" id="logoutLink">Log Out</a>';
-        document.getElementById('logoutLink').onclick = function (e) {
-          e.preventDefault();
-          _sbAuth.auth.signOut().then(function () { window.location.reload(); });
-        };
-      } else {
-        el.innerHTML = '<a href="#" id="loginLink">Log In</a>';
-        document.getElementById('loginLink').onclick = function (e) {
-          e.preventDefault();
-          const email = prompt('Enter your email to receive a login link:');
-          if (!email) return;
-          _sbAuth.auth.signInWithOtp({ email: email }).then(function (r) {
-            alert(r.error ? ('Something went wrong: ' + r.error.message) : 'Check your email for a login link.');
-          });
-        };
-      }
-    });
-  }
-})();
-</script>
+<script src="assets/membership.js"></script>
 <div class="deal-header wrap">
   <div class="breadcrumb"><a href="listings.html">HVAC</a> / Mountain West (NV)</div>
   <div class="deal-header-row">
@@ -406,33 +379,29 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 <footer class="site-footer"><div class="wrap">
   Bizvetting grades HVAC businesses for sale against standardized SBA 7(a) underwriting math. Deal figures are estimates for screening purposes only, derived from public listing data and standardized assumptions (12.5% down, 9.5% rate, 10-yr term, 20% SDE stress haircut). Not a substitute for lender underwriting or a CPA-reviewed quality-of-earnings review. Grades are relative to the current batch, not an absolute rating.
 </div></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function () {
-  const SUPABASE_URL = "https://zvzccgbzfmnjzjyqxaay.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_Rfp5FzznTrV9UFldAQCvrg_2bu6oVDT";
+  const sb = BVMembership.sb;
 
   // Every deal page's own slug, so this same script works unmodified on
-  // all 333+ pages — derived from the filename itself.
+  // every deal page -- derived from the filename itself.
   const PAGE_SLUG = window.location.pathname
     .split('/').pop()
     .replace(/^deal-/, '')
     .replace(/\.html$/, '');
 
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
   async function init() {
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session } } = await sb.auth.getSession();
     const gateCard = document.querySelector('.gate-card');
     if (!gateCard) return; // page has no gate card, nothing to do
 
     if (!session) {
-      renderLoggedOutState(gateCard);
+      wireMemberBtn(gateCard);
       return;
     }
 
     // Logged in — check this specific deal's real gated data.
-    const { data, error } = await supabase
+    const { data, error } = await sb
       .from('deals_public')
       .select('exact_price, broker_name, broker_contact, target_price, annual_debt_service, source_url, member_content_unlocked')
       .eq('slug', PAGE_SLUG)
@@ -450,21 +419,16 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
     }
   }
 
-  function renderLoggedOutState(gateCard) {
+  // Wires the gate card's "Become a Member" button to the shared checkout
+  // flow. Works whether the visitor is logged in yet or not -- if not,
+  // startOrDeferCheckout() collects their email and auto-resumes checkout
+  // once they click their magic-link and land back on the site.
+  function wireMemberBtn(gateCard) {
     const memberBtn = gateCard.querySelector('.btn-orange');
     if (!memberBtn) return;
-    memberBtn.textContent = 'Log In to Continue';
     memberBtn.onclick = function (e) {
       e.preventDefault();
-      const email = prompt('Enter your email to receive a login link:');
-      if (!email) return;
-      supabase.auth.signInWithOtp({ email }).then(function (res) {
-        if (res.error) {
-          alert('Something went wrong: ' + res.error.message);
-        } else {
-          alert('Check your email for a login link, then come back to this page.');
-        }
-      });
+      BVMembership.startOrDeferCheckout(memberBtn, window.location.pathname);
     };
   }
 
@@ -473,36 +437,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
     if (ctaText) {
       ctaText.textContent = "You're logged in — become a member to unlock this listing's exact price, broker contact, and target-offer price.";
     }
-    const memberBtn = gateCard.querySelector('.btn-orange');
-    if (memberBtn) {
-      memberBtn.onclick = async function (e) {
-        e.preventDefault();
-        memberBtn.textContent = 'Redirecting...';
-        const { data: { session } } = await supabase.auth.getSession();
-        if (!session) return;
-        try {
-          const res = await fetch(SUPABASE_URL + '/functions/v1/create-checkout-session', {
-            method: 'POST',
-            headers: {
-              'Authorization': 'Bearer ' + session.access_token,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ return_path: window.location.pathname }),
-          });
-          const data = await res.json();
-          if (data.url) {
-            window.location.href = data.url;
-          } else {
-            alert('Something went wrong starting checkout: ' + (data.error || 'unknown error'));
-            memberBtn.textContent = 'Become a Member';
-          }
-        } catch (err) {
-          console.error('Checkout error:', err);
-          alert('Something went wrong. Please try again.');
-          memberBtn.textContent = 'Become a Member';
-        }
-      };
-    }
+    wireMemberBtn(gateCard);
   }
 
   function unlockGateCard(gateCard, data) {
