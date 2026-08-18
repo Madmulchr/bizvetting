@@ -4,6 +4,26 @@
       "source": "/deal-mid-atlantic-ny-hvac-grade-a-1-0x-sde-38a54f61.html",
       "destination": "/deal-mid-atlantic-ny-hvac-grade-c-3-73x-sde-38a54f61.html",
       "permanent": true
+    },
+    {
+      "source": "/deal-south-central-ar-hvac-grade-a-1-21x-sde-8b58909e.html",
+      "destination": "/deal-south-central-tx-hvac-grade-a-1-21x-sde-8b58909e.html",
+      "permanent": true
+    },
+    {
+      "source": "/deal-south-central-ar-hvac-grade-a-1-33x-sde-aa8c09b9.html",
+      "destination": "/deal-southeast-nc-hvac-grade-a-1-33x-sde-aa8c09b9.html",
+      "permanent": true
+    },
+    {
+      "source": "/deal-southeast-nc-hvac-grade-a-1-21x-sde-26bad11e.html",
+      "destination": "/deal-southeast-ky-hvac-grade-a-1-21x-sde-26bad11e.html",
+      "permanent": true
+    },
+    {
+      "source": "/deal-southeast-nc-hvac-grade-a-1-6x-sde-e9108155.html",
+      "destination": "/deal-south-central-tx-hvac-grade-a-1-6x-sde-e9108155.html",
+      "permanent": true
     }
   ]
 }
