@@ -84,6 +84,11 @@
       "source": "/deal-region-withheld-hvac-grade-c-3-63x-sde-fd940681.html",
       "destination": "/deal-southwest-ut-hvac-grade-c-3-63x-sde-fd940681.html",
       "permanent": true
+    },
+    {
+      "source": "/deal-south-central-tx-hvac-grade-a-1-6x-sde-a2a67565.html",
+      "destination": "/deal-midwest-mi-hvac-grade-a-1-6x-sde-a2a67565.html",
+      "permanent": true
     }
   ]
 }

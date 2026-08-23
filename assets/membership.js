@@ -36,7 +36,7 @@
       overlay.innerHTML =
         '<div style="background:#0F1B26;border:1px solid #2A3A48;border-radius:10px;padding:24px;max-width:340px;width:100%;font-family:inherit;">' +
         '<p style="color:#ECEEE7;margin:0 0 12px;font-size:14px;line-height:1.4;">' + message + '</p>' +
-        '<input type="email" placeholder="you@email.com" required style="width:100%;box-sizing:border-box;padding:10px;border-radius:6px;border:1px solid #2A3A48;background:#13202B;color:#ECEEE7;font-size:14px;margin-bottom:12px;">' +
+        '<input type="email" placeholder="you@email.com" required style="width:100%;box-sizing:border-box;padding:10px;border-radius:6px;border:1px solid #2A3A48;background:#13202B;color:#ECEEE7;font-size:16px;margin-bottom:12px;">' +
         '<div style="display:flex;gap:8px;justify-content:flex-end;">' +
         '<button type="button" data-act="cancel" style="padding:8px 14px;border-radius:6px;border:1px solid #2A3A48;background:transparent;color:#ECEEE7;cursor:pointer;font-size:13.5px;">Cancel</button>' +
         '<button type="button" data-act="send" style="padding:8px 14px;border-radius:6px;border:none;background:#D66650;color:#fff;cursor:pointer;font-size:13.5px;">Send link</button>' +

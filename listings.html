@@ -78,7 +78,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .wordmark { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); line-height: 1; }
 .wordmark span { color: var(--orange); }
 .wordmark-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); margin-top: 6px; }
-.header-nav { display: flex; gap: 26px; font-size: 13px; }
+.header-nav { display: flex; gap: 26px; font-size: 13px; flex-wrap: wrap; row-gap: 8px; }
 .header-nav a { color: var(--ink-dim); }
 .header-nav a:hover { color: var(--ink); }
 .header-nav a.current { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--orange); padding-bottom: 3px; }
@@ -130,7 +130,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .btn-orange:hover { background: #F09257; }
 .cta-divider { border-top: 1px solid var(--line); margin: 20px 0; }
 form.leadgen { display: flex; flex-direction: column; gap: 10px; }
-input[type=email] { padding: 12px 13px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-family: var(--font-display); font-size: 13.5px; }
+input[type=email] { padding: 12px 13px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-family: var(--font-display); font-size: 16px; }
 input[type=email]::placeholder { color: var(--ink-dim); }
 form.leadgen button { padding: 12px 13px; border-radius: 3px; border: none; background: var(--orange-deep); color: var(--ink); font-family: var(--font-mono); font-size: 13px; cursor: pointer; transition: background 0.15s ease; }
 form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
@@ -145,7 +145,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 .filter-bar-controls { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; background: var(--bg-panel); border: 1px solid var(--line); border-radius: 5px; padding: 16px 20px; }
 .filter-group { display: flex; flex-direction: column; gap: 6px; }
 .filter-group label { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-dim); }
-.filter-group select, .filter-group input[type=number] { background: var(--bg); border: 1px solid var(--line); color: var(--ink); border-radius: 3px; padding: 7px 10px; font-family: var(--font-display); font-size: 13px; min-width: 130px; }
+.filter-group select, .filter-group input[type=number] { background: var(--bg); border: 1px solid var(--line); color: var(--ink); border-radius: 3px; padding: 7px 10px; font-family: var(--font-display); font-size: 16px; min-width: 130px; }
 .filter-group select:focus, .filter-group input:focus { outline: 1px solid var(--orange); border-color: var(--orange); }
 .filter-checks { display: flex; gap: 12px; padding-top: 4px; }
 .filter-checks label { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); text-transform: none; letter-spacing: 0; }
@@ -243,6 +243,17 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   .ledger-table, .ledger-table tbody, .ledger-table tr, .ledger-table td { display: block; width: 100%; }
   .ledger-table tr { padding: 12px 16px; border-bottom: 1px solid var(--line); }
   .ledger-table td { padding: 4px 0; border-bottom: none; }
+  .ledger-table td:nth-child(3)::before,
+  .ledger-table td:nth-child(4)::before,
+  .ledger-table td:nth-child(5)::before,
+  .ledger-table td:nth-child(6)::before {
+    display: block; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--ink-dim); margin-bottom: 2px;
+  }
+  .ledger-table td:nth-child(3)::before { content: "Asking price"; }
+  .ledger-table td:nth-child(4)::before { content: "SDE multiple"; }
+  .ledger-table td:nth-child(5)::before { content: "DSCR — stated \2192  stressed"; }
+  .ledger-table td:nth-child(6)::before { content: "To hit 1.25x"; }
   .method-step { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 24px; margin-bottom: 24px; }
   .method-step:not(:first-child) { padding-left: 0; }
 }
@@ -273,8 +284,8 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <p class="batch-sub">Every listing is run through the same SBA 7(a) underwriting math and graded against the rest of this batch by stressed DSCR. No listing pays for a better grade. 110 Grade A · 110 Grade B · 113 Grade C · 3 over SBA loan cap.</p>
   <p class="fine-print">New to this? <a href="guide-how-to-buy-hvac-business.html">How SBA financing works for buying an HVAC business →</a> &nbsp;·&nbsp; <a href="methodology.html">See our grading methodology →</a></p>
 </div>
-<div class="region-browse wrap"><span class="hero-eyebrow" style="margin-bottom:10px;">Browse by Region</span><div class="region-chips"><a href="hub-southeast.html" class="region-chip">Southeast <span>(68)</span></a><a href="hub-mid-atlantic.html" class="region-chip">Mid-Atlantic <span>(44)</span></a><a href="hub-south-central.html" class="region-chip">South Central <span>(41)</span></a><a href="hub-midwest.html" class="region-chip">Midwest <span>(39)</span></a><a href="hub-new-england.html" class="region-chip">New England <span>(20)</span></a><a href="hub-mountain-west.html" class="region-chip">Mountain West <span>(18)</span></a><a href="hub-pacific.html" class="region-chip">Pacific <span>(17)</span></a></div></div>
-<div class="region-browse wrap"><span class="hero-eyebrow" style="margin-bottom:10px;">Browse by State</span><div class="region-chips"><a href="hub-florida.html" class="region-chip">Florida <span>(31)</span></a><a href="hub-texas.html" class="region-chip">Texas <span>(25)</span></a><a href="hub-new-york.html" class="region-chip">New York <span>(18)</span></a><a href="hub-california.html" class="region-chip">California <span>(15)</span></a><a href="hub-north-carolina.html" class="region-chip">North Carolina <span>(13)</span></a><a href="hub-colorado.html" class="region-chip">Colorado <span>(10)</span></a><a href="hub-massachusetts.html" class="region-chip">Massachusetts <span>(10)</span></a><a href="hub-new-jersey.html" class="region-chip">New Jersey <span>(9)</span></a><a href="hub-pennsylvania.html" class="region-chip">Pennsylvania <span>(8)</span></a><a href="hub-south-carolina.html" class="region-chip">South Carolina <span>(8)</span></a><a href="hub-michigan.html" class="region-chip">Michigan <span>(7)</span></a><a href="hub-missouri.html" class="region-chip">Missouri <span>(7)</span></a><a href="hub-ohio.html" class="region-chip">Ohio <span>(7)</span></a><a href="hub-oklahoma.html" class="region-chip">Oklahoma <span>(7)</span></a><a href="hub-arizona.html" class="region-chip">Arizona <span>(7)</span></a><a href="hub-illinois.html" class="region-chip">Illinois <span>(6)</span></a><a href="hub-arkansas.html" class="region-chip">Arkansas <span>(6)</span></a><a href="hub-virginia.html" class="region-chip">Virginia <span>(5)</span></a><a href="hub-alabama.html" class="region-chip">Alabama <span>(5)</span></a></div></div>
+<div class="region-browse wrap"><span class="hero-eyebrow" style="margin-bottom:10px;">Browse by Region</span><div class="region-chips"><a href="hub-southeast.html" class="region-chip">Southeast <span>(68)</span></a><a href="hub-mid-atlantic.html" class="region-chip">Mid-Atlantic <span>(46)</span></a><a href="hub-south-central.html" class="region-chip">South Central <span>(40)</span></a><a href="hub-midwest.html" class="region-chip">Midwest <span>(40)</span></a><a href="hub-new-england.html" class="region-chip">New England <span>(23)</span></a><a href="hub-mountain-west.html" class="region-chip">Mountain West <span>(19)</span></a><a href="hub-pacific.html" class="region-chip">Pacific <span>(18)</span></a></div></div>
+<div class="region-browse wrap"><span class="hero-eyebrow" style="margin-bottom:10px;">Browse by State</span><div class="region-chips"><a href="hub-florida.html" class="region-chip">Florida <span>(29)</span></a><a href="hub-texas.html" class="region-chip">Texas <span>(26)</span></a><a href="hub-new-york.html" class="region-chip">New York <span>(18)</span></a><a href="hub-california.html" class="region-chip">California <span>(16)</span></a><a href="hub-north-carolina.html" class="region-chip">North Carolina <span>(13)</span></a><a href="hub-colorado.html" class="region-chip">Colorado <span>(10)</span></a><a href="hub-massachusetts.html" class="region-chip">Massachusetts <span>(9)</span></a><a href="hub-new-jersey.html" class="region-chip">New Jersey <span>(9)</span></a><a href="hub-south-carolina.html" class="region-chip">South Carolina <span>(8)</span></a><a href="hub-pennsylvania.html" class="region-chip">Pennsylvania <span>(8)</span></a><a href="hub-michigan.html" class="region-chip">Michigan <span>(8)</span></a><a href="hub-ohio.html" class="region-chip">Ohio <span>(7)</span></a><a href="hub-oklahoma.html" class="region-chip">Oklahoma <span>(7)</span></a><a href="hub-virginia.html" class="region-chip">Virginia <span>(7)</span></a><a href="hub-missouri.html" class="region-chip">Missouri <span>(6)</span></a><a href="hub-arizona.html" class="region-chip">Arizona <span>(6)</span></a><a href="hub-illinois.html" class="region-chip">Illinois <span>(6)</span></a><a href="hub-tennessee.html" class="region-chip">Tennessee <span>(5)</span></a><a href="hub-alabama.html" class="region-chip">Alabama <span>(5)</span></a><a href="hub-rhode-island.html" class="region-chip">Rhode Island <span>(4)</span></a><a href="hub-connecticut.html" class="region-chip">Connecticut <span>(4)</span></a><a href="hub-idaho.html" class="region-chip">Idaho <span>(4)</span></a><a href="hub-kentucky.html" class="region-chip">Kentucky <span>(4)</span></a><a href="hub-arkansas.html" class="region-chip">Arkansas <span>(4)</span></a><a href="hub-nevada.html" class="region-chip">Nevada <span>(4)</span></a><a href="hub-new-hampshire.html" class="region-chip">New Hampshire <span>(4)</span></a><a href="hub-utah.html" class="region-chip">Utah <span>(4)</span></a><a href="hub-georgia.html" class="region-chip">Georgia <span>(4)</span></a><a href="hub-indiana.html" class="region-chip">Indiana <span>(4)</span></a><a href="hub-maryland.html" class="region-chip">Maryland <span>(4)</span></a><a href="hub-iowa.html" class="region-chip">Iowa <span>(3)</span></a><a href="hub-minnesota.html" class="region-chip">Minnesota <span>(3)</span></a><a href="hub-washington.html" class="region-chip">Washington <span>(3)</span></a><a href="hub-wisconsin.html" class="region-chip">Wisconsin <span>(2)</span></a><a href="hub-hawaii.html" class="region-chip">Hawaii <span>(2)</span></a><a href="hub-maine.html" class="region-chip">Maine <span>(2)</span></a><a href="hub-oregon.html" class="region-chip">Oregon <span>(1)</span></a><a href="hub-kansas.html" class="region-chip">Kansas <span>(1)</span></a><a href="hub-montana.html" class="region-chip">Montana <span>(1)</span></a></div></div>
 <div class="ledger wrap">
   <div class="filter-bar" id="filterBar">
     <div class="filter-bar-locked" id="filterBarLocked">
@@ -948,7 +959,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <td class="num-cell">1.6x</td>
   <td class="dscr-pair">4.59 <span class="arrow">→</span> <span class="stressed">3.68</span></td>
   <td class="num-cell">Clears at ask</td>
-</tr><tr data-region="South Central" data-grade="A" data-price-lo="300000" data-dscr-stressed="3.68" data-sde-multiple="1.6">
+</tr><tr data-region="Midwest" data-grade="A" data-price-lo="300000" data-dscr-stressed="3.68" data-sde-multiple="1.6">
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
   <line x1="20.0" y1="0" x2="20.0" y2="9.280000000000001" stroke="#8CA0B3" stroke-width="1.4" stroke-dasharray="2 2"/>
   <rect x="4" y="7.280000000000001" width="32" height="40.72" rx="7" fill="#ECEEE7" stroke="#4FB583" stroke-width="2" stroke-dasharray="4 3"/>
@@ -956,7 +967,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <circle cx="20.0" cy="18.28" r="1.8" fill="#0F2A44"/>
   <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
 </svg></td>
-  <td class="deal-title-cell"><a href="deal-south-central-tx-hvac-grade-a-1-6x-sde-a2a67565.html">South Central (TX) HVAC Business</a><span class="deal-meta">South Central (TX)</span></td>
+  <td class="deal-title-cell"><a href="deal-midwest-mi-hvac-grade-a-1-6x-sde-a2a67565.html">Midwest (MI) HVAC Business</a><span class="deal-meta">Midwest (MI)</span></td>
   <td class="num-cell">$300K – $350K</td>
   <td class="num-cell">1.6x</td>
   <td class="dscr-pair">4.59 <span class="arrow">→</span> <span class="stressed">3.68</span></td>

@@ -78,7 +78,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .wordmark { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); line-height: 1; }
 .wordmark span { color: var(--orange); }
 .wordmark-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); margin-top: 6px; }
-.header-nav { display: flex; gap: 26px; font-size: 13px; }
+.header-nav { display: flex; gap: 26px; font-size: 13px; flex-wrap: wrap; row-gap: 8px; }
 .header-nav a { color: var(--ink-dim); }
 .header-nav a:hover { color: var(--ink); }
 .header-nav a.current { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--orange); padding-bottom: 3px; }
@@ -130,7 +130,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .btn-orange:hover { background: #F09257; }
 .cta-divider { border-top: 1px solid var(--line); margin: 20px 0; }
 form.leadgen { display: flex; flex-direction: column; gap: 10px; }
-input[type=email] { padding: 12px 13px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-family: var(--font-display); font-size: 13.5px; }
+input[type=email] { padding: 12px 13px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-family: var(--font-display); font-size: 16px; }
 input[type=email]::placeholder { color: var(--ink-dim); }
 form.leadgen button { padding: 12px 13px; border-radius: 3px; border: none; background: var(--orange-deep); color: var(--ink); font-family: var(--font-mono); font-size: 13px; cursor: pointer; transition: background 0.15s ease; }
 form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
@@ -145,7 +145,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 .filter-bar-controls { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; background: var(--bg-panel); border: 1px solid var(--line); border-radius: 5px; padding: 16px 20px; }
 .filter-group { display: flex; flex-direction: column; gap: 6px; }
 .filter-group label { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-dim); }
-.filter-group select, .filter-group input[type=number] { background: var(--bg); border: 1px solid var(--line); color: var(--ink); border-radius: 3px; padding: 7px 10px; font-family: var(--font-display); font-size: 13px; min-width: 130px; }
+.filter-group select, .filter-group input[type=number] { background: var(--bg); border: 1px solid var(--line); color: var(--ink); border-radius: 3px; padding: 7px 10px; font-family: var(--font-display); font-size: 16px; min-width: 130px; }
 .filter-group select:focus, .filter-group input:focus { outline: 1px solid var(--orange); border-color: var(--orange); }
 .filter-checks { display: flex; gap: 12px; padding-top: 4px; }
 .filter-checks label { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); text-transform: none; letter-spacing: 0; }
@@ -243,6 +243,17 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   .ledger-table, .ledger-table tbody, .ledger-table tr, .ledger-table td { display: block; width: 100%; }
   .ledger-table tr { padding: 12px 16px; border-bottom: 1px solid var(--line); }
   .ledger-table td { padding: 4px 0; border-bottom: none; }
+  .ledger-table td:nth-child(3)::before,
+  .ledger-table td:nth-child(4)::before,
+  .ledger-table td:nth-child(5)::before,
+  .ledger-table td:nth-child(6)::before {
+    display: block; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--ink-dim); margin-bottom: 2px;
+  }
+  .ledger-table td:nth-child(3)::before { content: "Asking price"; }
+  .ledger-table td:nth-child(4)::before { content: "SDE multiple"; }
+  .ledger-table td:nth-child(5)::before { content: "DSCR — stated \2192  stressed"; }
+  .ledger-table td:nth-child(6)::before { content: "To hit 1.25x"; }
   .method-step { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 24px; margin-bottom: 24px; }
   .method-step:not(:first-child) { padding-left: 0; }
 }

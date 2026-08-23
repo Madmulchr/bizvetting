@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michigan HVAC Businesses for Sale — Graded for SBA Financing | Bizvetting</title>
-<meta name="description" content="7 HVAC businesses for sale in Michigan, Grade A/B/C (2/2/3), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
+<meta name="description" content="8 HVAC businesses for sale in Michigan, Grade A/B/C (3/2/3), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
 <link rel="canonical" href="https://bizvetting.com/hub-michigan.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Michigan HVAC Businesses for Sale — Graded for SBA Financing">
-<meta property="og:description" content="7 HVAC businesses for sale in Michigan, Grade A/B/C (2/2/3), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
+<meta property="og:description" content="8 HVAC businesses for sale in Michigan, Grade A/B/C (3/2/3), graded by stressed DSCR against standardized SBA 7(a) underwriting. Free, no signup required.">
 <meta property="og:url" content="https://bizvetting.com/hub-michigan.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -78,7 +78,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .wordmark { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); line-height: 1; }
 .wordmark span { color: var(--orange); }
 .wordmark-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); margin-top: 6px; }
-.header-nav { display: flex; gap: 26px; font-size: 13px; }
+.header-nav { display: flex; gap: 26px; font-size: 13px; flex-wrap: wrap; row-gap: 8px; }
 .header-nav a { color: var(--ink-dim); }
 .header-nav a:hover { color: var(--ink); }
 .header-nav a.current { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--orange); padding-bottom: 3px; }
@@ -130,7 +130,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .btn-orange:hover { background: #F09257; }
 .cta-divider { border-top: 1px solid var(--line); margin: 20px 0; }
 form.leadgen { display: flex; flex-direction: column; gap: 10px; }
-input[type=email] { padding: 12px 13px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-family: var(--font-display); font-size: 13.5px; }
+input[type=email] { padding: 12px 13px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-family: var(--font-display); font-size: 16px; }
 input[type=email]::placeholder { color: var(--ink-dim); }
 form.leadgen button { padding: 12px 13px; border-radius: 3px; border: none; background: var(--orange-deep); color: var(--ink); font-family: var(--font-mono); font-size: 13px; cursor: pointer; transition: background 0.15s ease; }
 form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
@@ -145,7 +145,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 .filter-bar-controls { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; background: var(--bg-panel); border: 1px solid var(--line); border-radius: 5px; padding: 16px 20px; }
 .filter-group { display: flex; flex-direction: column; gap: 6px; }
 .filter-group label { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-dim); }
-.filter-group select, .filter-group input[type=number] { background: var(--bg); border: 1px solid var(--line); color: var(--ink); border-radius: 3px; padding: 7px 10px; font-family: var(--font-display); font-size: 13px; min-width: 130px; }
+.filter-group select, .filter-group input[type=number] { background: var(--bg); border: 1px solid var(--line); color: var(--ink); border-radius: 3px; padding: 7px 10px; font-family: var(--font-display); font-size: 16px; min-width: 130px; }
 .filter-group select:focus, .filter-group input:focus { outline: 1px solid var(--orange); border-color: var(--orange); }
 .filter-checks { display: flex; gap: 12px; padding-top: 4px; }
 .filter-checks label { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); text-transform: none; letter-spacing: 0; }
@@ -243,6 +243,17 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   .ledger-table, .ledger-table tbody, .ledger-table tr, .ledger-table td { display: block; width: 100%; }
   .ledger-table tr { padding: 12px 16px; border-bottom: 1px solid var(--line); }
   .ledger-table td { padding: 4px 0; border-bottom: none; }
+  .ledger-table td:nth-child(3)::before,
+  .ledger-table td:nth-child(4)::before,
+  .ledger-table td:nth-child(5)::before,
+  .ledger-table td:nth-child(6)::before {
+    display: block; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--ink-dim); margin-bottom: 2px;
+  }
+  .ledger-table td:nth-child(3)::before { content: "Asking price"; }
+  .ledger-table td:nth-child(4)::before { content: "SDE multiple"; }
+  .ledger-table td:nth-child(5)::before { content: "DSCR — stated \2192  stressed"; }
+  .ledger-table td:nth-child(6)::before { content: "To hit 1.25x"; }
   .method-step { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 24px; margin-bottom: 24px; }
   .method-step:not(:first-child) { padding-left: 0; }
 }
@@ -281,11 +292,11 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Michigan HVAC Businesses for Sale",
-  "description": "7 HVAC service businesses for sale in Michigan, graded by stressed DSCR against standardized SBA 7(a) underwriting.",
+  "description": "8 HVAC service businesses for sale in Michigan, graded by stressed DSCR against standardized SBA 7(a) underwriting.",
   "url": "https://bizvetting.com/hub-michigan.html",
   "mainEntity": {
     "@type": "ItemList",
-    "numberOfItems": 7,
+    "numberOfItems": 8,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -295,31 +306,36 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
       {
         "@type": "ListItem",
         "position": 2,
-        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-a-2-05x-sde-2b294fb0.html"
+        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-a-1-6x-sde-a2a67565.html"
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-b-2-46x-sde-b7ff5125.html"
+        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-a-2-05x-sde-2b294fb0.html"
       },
       {
         "@type": "ListItem",
         "position": 4,
-        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-b-3-0x-sde-d3025ec3.html"
+        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-b-2-46x-sde-b7ff5125.html"
       },
       {
         "@type": "ListItem",
         "position": 5,
-        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-c-5-11x-sde-948d13bc.html"
+        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-b-3-0x-sde-d3025ec3.html"
       },
       {
         "@type": "ListItem",
         "position": 6,
-        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-c-5-71x-sde-1466db9d.html"
+        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-c-5-11x-sde-948d13bc.html"
       },
       {
         "@type": "ListItem",
         "position": 7,
+        "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-c-5-71x-sde-1466db9d.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
         "url": "https://bizvetting.com/deal-midwest-mi-hvac-grade-c-7-31x-sde-055e5812.html"
       }
     ]
@@ -347,7 +363,7 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
 <div class="batch-banner wrap">
   <div class="hero-eyebrow">Michigan — Cycle 2026.08</div>
   <h1 class="batch-title">Michigan HVAC Businesses, Graded for SBA Financing</h1>
-  <p class="batch-sub">7 HVAC service businesses for sale in Michigan, run through the same SBA 7(a) underwriting math as every other listing and graded against the full current batch — not just against each other. 2 Grade A · 2 Grade B · 3 Grade C.</p>
+  <p class="batch-sub">8 HVAC service businesses for sale in Michigan, run through the same SBA 7(a) underwriting math as every other listing and graded against the full current batch — not just against each other. 3 Grade A · 2 Grade B · 3 Grade C.</p>
 </div>
 <div class="ledger wrap">
   <div class="ledger-panel">
@@ -366,6 +382,19 @@ form.leadgen button:hover { background: var(--orange); color: var(--ink-dark); }
   <td class="num-cell">$250K – $300K</td>
   <td class="num-cell">1.39x</td>
   <td class="dscr-pair">5.28 <span class="arrow">→</span> <span class="stressed">4.22</span></td>
+  <td class="num-cell">Clears at ask</td>
+</tr><tr>
+  <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
+  <line x1="20.0" y1="0" x2="20.0" y2="9.280000000000001" stroke="#8CA0B3" stroke-width="1.4" stroke-dasharray="2 2"/>
+  <rect x="4" y="7.280000000000001" width="32" height="40.72" rx="7" fill="#ECEEE7" stroke="#4FB583" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="20.0" cy="18.28" r="4.5" fill="none" stroke="#13202B" stroke-width="1.4"/>
+  <circle cx="20.0" cy="18.28" r="1.8" fill="#0F2A44"/>
+  <text x="20.0" y="32.526399999999995" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="19" fill="#4FB583">A</text>
+</svg></td>
+  <td class="deal-title-cell"><a href="deal-midwest-mi-hvac-grade-a-1-6x-sde-a2a67565.html">Midwest (MI) HVAC Business</a><span class="deal-meta">Midwest (MI)</span></td>
+  <td class="num-cell">$300K – $350K</td>
+  <td class="num-cell">1.6x</td>
+  <td class="dscr-pair">4.59 <span class="arrow">→</span> <span class="stressed">3.68</span></td>
   <td class="num-cell">Clears at ask</td>
 </tr><tr>
   <td style="width:52px;"><svg viewBox="0 0 40 52" width="40" height="52" xmlns="http://www.w3.org/2000/svg">
