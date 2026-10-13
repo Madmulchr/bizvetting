@@ -1,2 +1,9 @@
 
 bizvetting-repo/
+
+*.ps1
+*.sql
+*.py
+*.patch.txt
+*.zip
+bizvetting-checkout-fix/
